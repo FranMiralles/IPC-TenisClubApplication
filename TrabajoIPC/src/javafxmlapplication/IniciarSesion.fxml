@@ -80,7 +80,7 @@
                                           <Image url="@../images/ExclamationIcon.png" />
                                        </image>
                                     </ImageView>
-                                    <Label fx:id="alertText" alignment="TOP_LEFT" prefHeight="38.0" prefWidth="165.0" text="Nombre de usuario o contraseña incorrectos" textFill="#7c7c7c" wrapText="true">
+                                    <Label fx:id="alertText" alignment="TOP_LEFT" prefWidth="165.0" text="Inicia con tus credenciales" textFill="#7c7c7c" wrapText="true">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
