@@ -49,7 +49,11 @@ public class JavaFXMLApplication extends Application {
                 break;
             case "RegistroUsuario":
                 stage.setMinWidth(922);
-                stage.setMinHeight(750);
+                stage.setMinHeight(760);
+                break;
+            case "IniciarSesion":
+                stage.setMinWidth(700);
+                stage.setMinHeight(550);
                 break;
             }
         }else{
