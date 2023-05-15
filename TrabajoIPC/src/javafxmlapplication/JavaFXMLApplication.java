@@ -47,6 +47,14 @@ public class JavaFXMLApplication extends Application {
                 stage.setMinWidth(760);
                 stage.setMinHeight(560);
                 break;
+            case "RegistroUsuario":
+                stage.setMinWidth(922);
+                stage.setMinHeight(760);
+                break;
+            case "IniciarSesion":
+                stage.setMinWidth(700);
+                stage.setMinHeight(550);
+                break;
             }
         }else{
             System.err.printf("No se encuentra la escena: %s", clave);
