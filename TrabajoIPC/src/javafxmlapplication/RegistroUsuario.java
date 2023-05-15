@@ -156,6 +156,13 @@ public class RegistroUsuario implements Initializable {
         //Errores en nombre
         nombre.setOnKeyTyped(event -> cambiarEstiloNombre());
         
+        //Errores en nombre cuando cambias de campo y está vacío
+        nombre.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloNombre();
+            }
+        });
+        
         //Permitir solo letras y espaciado en los apellidos
         apellidos.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z\\s'\\-áéíúóàèìòùÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜñÑ]*")) {
@@ -165,6 +172,13 @@ public class RegistroUsuario implements Initializable {
         
         //Errores en apellidos
         apellidos.setOnKeyTyped(event -> cambiarEstiloApellidos()); 
+        
+        //Errores en apellidos cuando cambias de campo y está vacío
+        apellidos.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloApellidos();
+            }
+        });
         
         //Permitir solo números y longitud máxima de 9 dígitos en teléfono
         tel.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -178,6 +192,13 @@ public class RegistroUsuario implements Initializable {
         //Errores en tel
         tel.setOnKeyTyped(event -> cambiarEstiloTel());
         
+        //Errores en tel cuando cambias de campo y está vacío
+        tel.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloTel();
+            }
+        });
+        
         //Permitir todos los caracteres excepto el espacio en el nickname
         nick.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(" ")) {
@@ -185,8 +206,15 @@ public class RegistroUsuario implements Initializable {
             }
         });
         
-        //Errores en nickname
+        //Errores en nickname usado
         nick.setOnKeyTyped(event -> cambiarEstiloNick());
+        
+        //Errores en nickname usado
+        nick.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloNickEmpty();
+            }
+        });
         
         //Permitir solo números y letras en el campo de contraseña
         pwd.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -457,7 +485,7 @@ public class RegistroUsuario implements Initializable {
         }
     }
     
-    //Mostrar errores en nickname
+    //Mostrar errores en nickname cuando está usado
     private void cambiarEstiloNick() {
         String nickText = nick.getText();
         boolean nickValido = !greenBall.existsLogin(nickText);
@@ -466,6 +494,22 @@ public class RegistroUsuario implements Initializable {
             userAlertImage.setVisible(true);
             userAlert.setStyle("-fx-text-fill: #fc0000;");
             userAlert.setText("Usuario repetido");
+        } else {
+            userAlertImage.setVisible(false);
+            userAlert.setStyle("-fx-text-fill: #7c7c7c;");
+            userAlert.setText("No debe tener espacios");
+        }
+    }
+    
+    //Mostrar errores en el nombre
+    private void cambiarEstiloNickEmpty() {
+        String nickText = nick.getText();
+        boolean nickValido = !nickText.isEmpty();
+
+        if (!nickValido) {
+            userAlertImage.setVisible(true);
+            userAlert.setStyle("-fx-text-fill: #fc0000;");
+            userAlert.setText("No debe estar vacío");
         } else {
             userAlertImage.setVisible(false);
             userAlert.setStyle("-fx-text-fill: #7c7c7c;");
