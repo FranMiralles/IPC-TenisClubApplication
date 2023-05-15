@@ -312,12 +312,20 @@ public class RegistroUsuario implements Initializable {
 
     @FXML
     private void aceptar(){
-        
         boolean camposValidos = verificarCampos();
         boolean contrValida = checkPasswordRequirements();
+        
+        String tarjeta = "";
+        int codigoCSV = 0;
+        
         if (camposValidos && contrValida) {
             try{
-            greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tar1.getText() + tar2.getText() + tar3.getText() + tar4.getText(), Integer.parseInt(csv.getText()), foto.getImage());
+            if(tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()){
+                greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tarjeta, codigoCSV, foto.getImage());
+            }
+            else{
+                greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tar1.getText() + tar2.getText() + tar3.getText() + tar4.getText(), Integer.parseInt(csv.getText()), foto.getImage());
+            }
             mostrarAlert();
             limpiarCampos();
             JavaFXMLApplication.setRoot("IniciarSesion");
@@ -425,7 +433,15 @@ public class RegistroUsuario implements Initializable {
 
             return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
         }
-        return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida;
+        else{
+            tarAlertImage1.setVisible(false);
+            tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
+
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+            
+            return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida;
+        }
     }
     
     //Mostrar errores en el nombre
