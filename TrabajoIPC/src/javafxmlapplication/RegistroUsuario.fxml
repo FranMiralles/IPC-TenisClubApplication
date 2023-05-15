@@ -17,7 +17,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="832.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.RegistroUsuario">
+<BorderPane id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="723.0" prefWidth="922.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.RegistroUsuario">
    <top>
       <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #24740c;" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
@@ -43,7 +43,7 @@
    <center>
       <StackPane styleClass="char" BorderPane.alignment="CENTER">
          <children>
-            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="521.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="791.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="595.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="791.0" />
             <HBox alignment="CENTER" spacing="35.0">
                <children>
                   <VBox alignment="CENTER_LEFT" spacing="35.0">
@@ -68,6 +68,23 @@
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
                                     </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="nameAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="nameAlert" text="No debe estar vacío" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
                               </VBox>
                               <VBox alignment="CENTER_LEFT" spacing="5.0">
@@ -82,6 +99,23 @@
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
                                     </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="apellidosAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="apellidosAlert" text="No debe estar vacío" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
                               </VBox>
                            </children>
@@ -103,14 +137,14 @@
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
                                     </TextField>
-                                    <HBox fx:id="userAlert" spacing="5.0">
+                                    <HBox spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                          <ImageView fx:id="userAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                              <image>
                                                 <Image url="@../images/ExclamationIcon.png" />
                                              </image>
                                           </ImageView>
-                                          <Label text="No debe tener espacios" textFill="#7c7c7c">
+                                          <Label fx:id="userAlert" text="No debe tener espacios" textFill="#7c7c7c">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -130,14 +164,14 @@
                                        </font>
                                     </Label>
                                     <PasswordField fx:id="pwd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="********" />
-                                    <HBox fx:id="pwdAlert" spacing="5.0">
+                                    <HBox spacing="5.0">
                                        <children>
                                           <ImageView fx:id="pwdAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                              <image>
                                                 <Image url="@../images/ExclamationIcon.png" />
                                              </image>
                                           </ImageView>
-                                          <Label maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" text="Utiliza 6 carácteres como mínimo usando letras y números" textFill="#e40606" wrapText="true">
+                                          <Label fx:id="pwdAlert" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" text="Utiliza 6 carácteres como mínimo usando letras y números" textFill="#7c7c7c" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -157,14 +191,14 @@
                                        </font>
                                     </Label>
                                     <PasswordField fx:id="pwd1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="********" />
-                                    <HBox fx:id="pwd1Alert" spacing="5.0">
+                                    <HBox spacing="5.0">
                                        <children>
-                                          <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                          <ImageView fx:id="pwd1AlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
                                              <image>
                                                 <Image url="@../images/ExclamationIcon.png" />
                                              </image>
                                           </ImageView>
-                                          <Label minHeight="-Infinity" text="Debe ser igual a la contraseña" textFill="#7c7c7c" wrapText="true">
+                                          <Label fx:id="pwd1Alert" minHeight="-Infinity" text="Debe ser igual a la contraseña" textFill="#7c7c7c" wrapText="true">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
@@ -245,6 +279,23 @@
                                           <Cursor fx:constant="TEXT" />
                                        </cursor>
                                     </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="telAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="telAlert" text="Mínimo 9 dígitos" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -312,6 +363,40 @@
                                        </children>
                                     </VBox>
                                  </children>
+                              </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <ImageView fx:id="tarAlertImage1" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/ExclamationIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="tarAlert1" text="Mínimo 4 dígitos en tarjeta" textFill="#7c7c7c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="19.0" layoutY="184.0" spacing="5.0">
+                                 <children>
+                                    <ImageView fx:id="csvAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/ExclamationIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="csvAlert" text="Mínimo 3 dígitos en csv" textFill="#7c7c7c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
                               </HBox>
                            </children>
                            <padding>
