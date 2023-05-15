@@ -118,32 +118,25 @@ public class RegistroUsuario implements Initializable {
         //Este es el setImage que me da error
         foto.setImage(imageArray[0]);
         i = 0;
-        if(foto == null){ System.out.println("Foto null");}
         
-        //Esconder flechas
-        flechaIzq.setVisible(false);
-        flechaDer.setVisible(false);
-        
-        boolean antesFoto = false;
-        
-        foto.setOnMouseEntered(event -> {
-            flechaIzq.setVisible(true);
-            flechaDer.setVisible(true);
+        flechaDer.setOnMouseEntered(event -> {
+            flechaDer.setFitWidth(40); flechaDer.setFitHeight(40);
+            flechaIzq.setFitWidth(40); flechaIzq.setFitHeight(40);
         });
         
-        colliderFoto.setOnMouseExited(event -> {
-            flechaIzq.setVisible(false);
-            flechaDer.setVisible(false);
+        flechaIzq.setOnMouseEntered(event -> {
+            flechaDer.setFitWidth(40); flechaDer.setFitHeight(40);
+            flechaIzq.setFitWidth(40); flechaIzq.setFitHeight(40);
         });
         
         flechaDer.setOnMouseExited(event -> {
-            flechaIzq.setVisible(false);
-            flechaDer.setVisible(false);
+            flechaDer.setFitWidth(35); flechaDer.setFitHeight(35);
+            flechaIzq.setFitWidth(35); flechaIzq.setFitHeight(35);
         });
         
         flechaIzq.setOnMouseExited(event -> {
-            flechaIzq.setVisible(false);
-            flechaDer.setVisible(false);
+            flechaDer.setFitWidth(35); flechaDer.setFitHeight(35);
+            flechaIzq.setFitWidth(35); flechaIzq.setFitHeight(35);
         });
         
         //Permitir solo letras y espaciado en el nombre
@@ -156,6 +149,13 @@ public class RegistroUsuario implements Initializable {
         //Errores en nombre
         nombre.setOnKeyTyped(event -> cambiarEstiloNombre());
         
+        //Errores en nombre cuando cambias de campo y está vacío
+        nombre.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloNombre();
+            }
+        });
+        
         //Permitir solo letras y espaciado en los apellidos
         apellidos.textProperty().addListener((observable, oldValue, newValue) -> {
             if (!newValue.matches("[a-zA-Z\\s'\\-áéíúóàèìòùÁÉÍÓÚÀÈÌÒÙäëïöüÄËÏÖÜñÑ]*")) {
@@ -165,6 +165,13 @@ public class RegistroUsuario implements Initializable {
         
         //Errores en apellidos
         apellidos.setOnKeyTyped(event -> cambiarEstiloApellidos()); 
+        
+        //Errores en apellidos cuando cambias de campo y está vacío
+        apellidos.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloApellidos();
+            }
+        });
         
         //Permitir solo números y longitud máxima de 9 dígitos en teléfono
         tel.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -178,6 +185,13 @@ public class RegistroUsuario implements Initializable {
         //Errores en tel
         tel.setOnKeyTyped(event -> cambiarEstiloTel());
         
+        //Errores en tel cuando cambias de campo y está vacío
+        tel.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloTel();
+            }
+        });
+        
         //Permitir todos los caracteres excepto el espacio en el nickname
         nick.textProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue.contains(" ")) {
@@ -185,8 +199,15 @@ public class RegistroUsuario implements Initializable {
             }
         });
         
-        //Errores en nickname
+        //Errores en nickname usado
         nick.setOnKeyTyped(event -> cambiarEstiloNick());
+        
+        //Errores en nickname usado
+        nick.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloNickEmpty();
+            }
+        });
         
         //Permitir solo números y letras en el campo de contraseña
         pwd.textProperty().addListener((observable, oldValue, newValue) -> {
@@ -194,6 +215,13 @@ public class RegistroUsuario implements Initializable {
                 pwd.setText(oldValue);
             }
             checkPasswordRequirements();
+        });
+        
+        //Errores cen pwd cuando se cambie de textField
+        pwd.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue && checkPasswordRequirements()) {
+                cambiarEstiloPwd();
+            }
         });
         
         //Errores en pwd
@@ -205,6 +233,13 @@ public class RegistroUsuario implements Initializable {
                 pwd1.setText(oldValue);
             }
             checkPasswordRequirements();
+        });
+        
+        //Errores cen pwd1 cuando se cambie de textField
+        pwd1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloPwd1();
+            }
         });
         
         //Errores en pwd1
@@ -270,12 +305,20 @@ public class RegistroUsuario implements Initializable {
 
     @FXML
     private void aceptar(){
-        
         boolean camposValidos = verificarCampos();
         boolean contrValida = checkPasswordRequirements();
+        
+        String tarjeta = "";
+        int codigoCSV = 0;
+        
         if (camposValidos && contrValida) {
             try{
-            greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tar1.getText() + tar2.getText() + tar3.getText() + tar4.getText(), Integer.parseInt(csv.getText()), foto.getImage());
+            if(tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()){
+                greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tarjeta, codigoCSV, foto.getImage());
+            }
+            else{
+                greenBall.registerMember(nombre.getText().trim(), apellidos.getText().trim(), tel.getText(), nick.getText(), pwd.getText(), tar1.getText() + tar2.getText() + tar3.getText() + tar4.getText(), Integer.parseInt(csv.getText()), foto.getImage());
+            }
             mostrarAlert();
             limpiarCampos();
             JavaFXMLApplication.setRoot("IniciarSesion");
@@ -374,13 +417,24 @@ public class RegistroUsuario implements Initializable {
         telAlertImage.setVisible(tel.getText().isEmpty());
         telAlert.setStyle(tel.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
         
-        tarAlertImage1.setVisible(!tarjetaValida);
-        tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-        
-        csvAlertImage.setVisible(!csvValido);
-        csvAlert.setStyle(csvValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-         
-        return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
+        if(!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty() || !csv.getText().isEmpty()){
+            tarAlertImage1.setVisible(!tarjetaValida);
+            tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
+
+            csvAlertImage.setVisible(!csvValido);
+            csvAlert.setStyle(csvValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
+
+            return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
+        }
+        else{
+            tarAlertImage1.setVisible(false);
+            tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
+
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+            
+            return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida;
+        }
     }
     
     //Mostrar errores en el nombre
@@ -440,7 +494,7 @@ public class RegistroUsuario implements Initializable {
         }
     }
     
-    //Mostrar errores en nickname
+    //Mostrar errores en nickname cuando está usado
     private void cambiarEstiloNick() {
         String nickText = nick.getText();
         boolean nickValido = !greenBall.existsLogin(nickText);
@@ -449,6 +503,22 @@ public class RegistroUsuario implements Initializable {
             userAlertImage.setVisible(true);
             userAlert.setStyle("-fx-text-fill: #fc0000;");
             userAlert.setText("Usuario repetido");
+        } else {
+            userAlertImage.setVisible(false);
+            userAlert.setStyle("-fx-text-fill: #7c7c7c;");
+            userAlert.setText("No debe tener espacios");
+        }
+    }
+    
+    //Mostrar errores en el nombre
+    private void cambiarEstiloNickEmpty() {
+        String nickText = nick.getText();
+        boolean nickValido = !nickText.isEmpty();
+
+        if (!nickValido) {
+            userAlertImage.setVisible(true);
+            userAlert.setStyle("-fx-text-fill: #fc0000;");
+            userAlert.setText("No debe estar vacío");
         } else {
             userAlertImage.setVisible(false);
             userAlert.setStyle("-fx-text-fill: #7c7c7c;");
