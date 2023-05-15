@@ -374,13 +374,16 @@ public class RegistroUsuario implements Initializable {
         telAlertImage.setVisible(tel.getText().isEmpty());
         telAlert.setStyle(tel.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
         
-        tarAlertImage1.setVisible(!tarjetaValida);
-        tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-        
-        csvAlertImage.setVisible(!csvValido);
-        csvAlert.setStyle(csvValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-         
-        return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
+        if(!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty() || !csv.getText().isEmpty()){
+            tarAlertImage1.setVisible(!tarjetaValida);
+            tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
+
+            csvAlertImage.setVisible(!csvValido);
+            csvAlert.setStyle(csvValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
+
+            return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
+        }
+        return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida;
     }
     
     //Mostrar errores en el nombre
