@@ -229,7 +229,7 @@
                            <children>
                               <HBox fx:id="colliderFoto" alignment="CENTER">
                                  <children>
-                                    <ImageView fx:id="flechaIzq" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#izqImage" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="flechaIzq" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#izqImage" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/Flecha-Izq.png" />
                                        </image>
@@ -249,7 +249,7 @@
                                           <Image url="@../avatars/default.png" />
                                        </image>
                                     </ImageView>
-                                    <ImageView fx:id="flechaDer" fitHeight="40.0" fitWidth="40.0" onMouseClicked="#derImage" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="flechaDer" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#derImage" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/Flecha-Der.png" />
                                        </image>
