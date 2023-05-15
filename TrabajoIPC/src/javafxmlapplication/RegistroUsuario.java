@@ -196,6 +196,13 @@ public class RegistroUsuario implements Initializable {
             checkPasswordRequirements();
         });
         
+        //Errores cen pwd cuando se cambie de textField
+        pwd.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue && checkPasswordRequirements()) {
+                cambiarEstiloPwd();
+            }
+        });
+        
         //Errores en pwd
         pwd.setOnKeyTyped(event -> cambiarEstiloPwd());
         
@@ -205,6 +212,13 @@ public class RegistroUsuario implements Initializable {
                 pwd1.setText(oldValue);
             }
             checkPasswordRequirements();
+        });
+        
+        //Errores cen pwd1 cuando se cambie de textField
+        pwd1.focusedProperty().addListener((observable, oldValue, newValue) -> {
+            if (!newValue) {
+                cambiarEstiloPwd1();
+            }
         });
         
         //Errores en pwd1
