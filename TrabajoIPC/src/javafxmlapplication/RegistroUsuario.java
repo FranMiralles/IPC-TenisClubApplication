@@ -379,7 +379,9 @@ public class RegistroUsuario implements Initializable {
     }
     
     //Método para comprobar los campos
-    private boolean verificarCampos() {
+private boolean verificarCampos() {
+        boolean mandado = false;
+        
         String nombreText = nombre.getText().trim();
         String apellidosText = apellidos.getText().trim();
         
@@ -398,32 +400,44 @@ public class RegistroUsuario implements Initializable {
         
         nameAlertImage.setVisible(!nombreValido);
         nameAlert.setStyle(nombreValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-           
+        if(!mandado && !nombreValido){nombre.requestFocus(); mandado = true;}
+        
         apellidosAlertImage.setVisible(!apellidosValidos);
         apellidosAlert.setStyle(apellidosValidos ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
+        if(!mandado && !apellidosValidos){apellidos.requestFocus(); mandado = true;}
         
         userAlertImage.setVisible(nick.getText().isEmpty());
         userAlert.setStyle(nick.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
+        if(!mandado && !nickValido){nick.requestFocus(); mandado = true;}
         
         pwdAlertImage.setVisible(pwd.getText().isEmpty());
         pwdAlert.setStyle(pwd.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
+        if(!mandado && !pwdValida){pwd.requestFocus(); mandado = true;}
         
         pwd1AlertImage.setVisible(pwd1.getText().isEmpty());
         pwd1Alert.setStyle(pwd1.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
+        if(!mandado && !pwd1Valida){pwd1.requestFocus(); mandado = true;}
         
         pwd1AlertImage.setVisible(!pwd1.getText().equals(pwd.getText()));
         pwd1Alert.setStyle(!pwd1.getText().equals(pwd.getText()) ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
+        if(!mandado && !pwd1Valida){pwd1.requestFocus(); mandado = true;}
         
         telAlertImage.setVisible(tel.getText().isEmpty());
         telAlert.setStyle(tel.getText().isEmpty() ?  "-fx-text-fill: #fc0000;" : "-fx-text-fill: #7c7c7c;");
+        if(!mandado && !telValido){tel.requestFocus(); mandado = true;}
         
         if(!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty() || !csv.getText().isEmpty()){
             tarAlertImage1.setVisible(!tarjetaValida);
             tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-
+            if(!mandado && tar1.getText().length() != 4){tar1.requestFocus(); mandado = true;}
+            else if(!mandado && tar2.getText().length() != 4){tar2.requestFocus(); mandado = true;}
+            else if(!mandado && tar3.getText().length() != 4){tar3.requestFocus(); mandado = true;}
+            else if(!mandado && tar4.getText().length() != 4){tar4.requestFocus(); mandado = true;}
+            
             csvAlertImage.setVisible(!csvValido);
             csvAlert.setStyle(csvValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
-
+            if(!mandado && csv.getText().length() != 3){csv.requestFocus(); mandado = true;}
+            
             return nombreValido && apellidosValidos && telValido && nickValido && nickNoUsado && pwdValida && pwd1Valida && tarjetaValida && csvValido;
         }
         else{
