@@ -1,0 +1,36 @@
+.char{
+    -fx-background-image: url("../images/texturaCesped.jpg");
+    -fx-background-repeat: repeat;
+}
+
+.paneles{
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 8, 0, 0, 4);
+}
+
+.button {
+    -fx-background-color: #7bcb53;
+    -fx-text-fill: white;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-padding: 8px;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+}
+
+.button:hover {
+    -fx-background-color: #24740c;
+}
+
+.text-field {
+    -fx-background-color: #d7ebd2;
+    -fx-border-color: #24740c;
+    -fx-border-width: 2px;
+    -fx-border-radius: 5px;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-padding: 4px;
+}
+
+.text-field:focused {
+    -fx-border-color: #74a464;
+}
