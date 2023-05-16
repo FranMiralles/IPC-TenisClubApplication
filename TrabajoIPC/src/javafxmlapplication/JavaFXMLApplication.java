@@ -115,6 +115,12 @@ public class JavaFXMLApplication extends Application {
         roots.put("IniciarSesion", root);
         controllers.put("IniciarSesion", loader.getController());
         
+        loader = new FXMLLoader(getClass().getResource("ReservarPista_Especifica.fxml"));
+        root = loader.load();
+        roots.put("PistaEspecifica", root);
+        controllers.put("PistaEspecifica", loader.getController());
+        
+        
         scene = new Scene(roots.get("PaginaInicio"));
         
         stage.setMinWidth(817);

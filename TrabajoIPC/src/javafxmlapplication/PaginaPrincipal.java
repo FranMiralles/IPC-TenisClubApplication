@@ -65,6 +65,8 @@ public class PaginaPrincipal implements Initializable {
     
     @FXML
     private void goMisReservas(){
+        ReservarPistasController controller = (ReservarPistasController) JavaFXMLApplication.getController("MisReservas");
+        controller.member = member;
         JavaFXMLApplication.setRoot("MisReservas");
     }
     

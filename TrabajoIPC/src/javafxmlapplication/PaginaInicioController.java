@@ -281,9 +281,9 @@ public class PaginaInicioController implements Initializable {
         //Pruebas de testing => ya introducida
         /*
         try{
-            LocalDate ld = LocalDate.of(2023, 5, 15);
-            LocalDateTime lct = LocalDateTime.of(2023, 5, 15, 16, 0, 0);
-            LocalTime lt = LocalTime.of(16, 0);
+            LocalDate ld = LocalDate.of(2023, 5, 16);
+            LocalDateTime lct = LocalDateTime.of(2023, 5, 16, 10, 0, 0);
+            LocalTime lt = LocalTime.of(10, 0);
             greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "hola"));
             System.out.println(greenBall.getBookings().size());
         }catch(Exception e){
