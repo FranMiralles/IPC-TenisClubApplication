@@ -37,9 +37,9 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <VBox alignment="CENTER" spacing="5.0">
+                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="160.0" spacing="5.0">
                      <children>
-                        <Label contentDisplay="RIGHT" onMouseClicked="#iniciarSesion" text="Iniciar Sesión" textFill="WHITE" underline="true">
+                        <Label fx:id="iniSesion" contentDisplay="RIGHT" onMouseClicked="#iniciarSesion" text="Iniciar Sesión" textFill="WHITE" underline="true">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -47,7 +47,7 @@
                               <Cursor fx:constant="HAND" />
                            </cursor>
                         </Label>
-                        <Label onMouseClicked="#registrarse" text="Registrarse" textFill="WHITE">
+                        <Label fx:id="regist" onMouseClicked="#registrarse" text="Registrarse" textFill="WHITE">
                            <cursor>
                               <Cursor fx:constant="HAND" />
                            </cursor></Label>

@@ -21,6 +21,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 import model.*;
 
@@ -48,6 +49,10 @@ public class PaginaInicioController implements Initializable {
     private ImageView izqFlecha;
     @FXML
     private ImageView derFlecha;
+    @FXML
+    private Label iniSesion;
+    @FXML
+    private Label regist;
     
     private Image[] imageArray = new Image[6];
     private String[] nombreArray = new String[6];
@@ -55,6 +60,7 @@ public class PaginaInicioController implements Initializable {
     int i;
     Club greenBall = null;
     ObservableList<Item> bookingList;
+
    
     
     
@@ -67,6 +73,30 @@ public class PaginaInicioController implements Initializable {
         }catch(Exception e){
             System.err.println(e.toString());
         }
+        
+        iniSesion.setOnMouseEntered(event -> {
+            iniSesion.setUnderline(true);
+            iniSesion.setTextFill(Color.LIGHTBLUE);
+            iniSesion.setStyle("-fx-font-weight: bold");
+        });
+
+        iniSesion.setOnMouseExited(event -> {
+            iniSesion.setUnderline(false);
+            iniSesion.setTextFill(Color.WHITE);
+            iniSesion.setStyle("<font-weight>: regular");
+        });
+        
+        regist.setOnMouseEntered(event -> {
+            regist.setUnderline(true);
+            regist.setTextFill(Color.LIGHTBLUE);
+            regist.setStyle("-fx-font-weight: bold");
+        });
+
+        regist.setOnMouseExited(event -> {
+            regist.setUnderline(false);
+            regist.setTextFill(Color.WHITE);
+            regist.setStyle("<font-weight>: regular");
+        });
         
         //Script que elimine todas las reservas cuyo tiempo ya ha pasado desde que se abre la aplicación
         try{

@@ -59,12 +59,6 @@ public class RegistroUsuario implements Initializable {
     @FXML
     private ImageView flechaDer;
     @FXML
-    private HBox colliderFoto;
-    
-    private Image[] imageArray = new Image[12];
-    int i;
-    private Club greenBall = null;
-    @FXML
     private ImageView userAlertImage;
     @FXML
     private ImageView pwd1AlertImage;
@@ -89,6 +83,9 @@ public class RegistroUsuario implements Initializable {
     @FXML
     private Label apellidosAlert;
     
+    private Image[] imageArray = new Image[12];
+    int i;
+    private Club greenBall = null;
     
     
     @Override
