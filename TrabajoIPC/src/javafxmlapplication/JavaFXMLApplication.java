@@ -51,6 +51,10 @@ public class JavaFXMLApplication extends Application {
                 stage.setMinWidth(922);
                 stage.setMinHeight(760);
                 break;
+            case "CambioDatos":
+                stage.setMinWidth(922);
+                stage.setMinHeight(760);
+                break;
             case "IniciarSesion":
                 stage.setMinWidth(700);
                 stage.setMinHeight(550);
@@ -114,12 +118,6 @@ public class JavaFXMLApplication extends Application {
         root = loader.load();
         roots.put("IniciarSesion", root);
         controllers.put("IniciarSesion", loader.getController());
-        
-        loader = new FXMLLoader(getClass().getResource("ReservarPista_Especifica.fxml"));
-        root = loader.load();
-        roots.put("PistaEspecifica", root);
-        controllers.put("PistaEspecifica", loader.getController());
-        
         
         scene = new Scene(roots.get("PaginaInicio"));
         
