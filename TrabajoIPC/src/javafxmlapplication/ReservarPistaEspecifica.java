@@ -39,7 +39,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     @FXML
     private ComboBox<LocalTime> hora_Fin;
     @FXML
-    private Text titulo ;
+    private Label titulo ;
     @FXML
     private Button aceptarButton;
     @FXML
@@ -164,7 +164,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     
     @FXML
     private void aceptar(ActionEvent event) {
-          if(horaFinSel!= null && horaInSel!= null){
+          if(horaFinSel!= null && horaInSel!= null && member != null){
               minuteRes = horaInSel.until(horaFinSel, java.time.temporal.ChronoUnit.MINUTES);  
               System.out.println(pista.getName());
               System.out.println(member.getName());
@@ -175,6 +175,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
               System.out.println(minuteRes);
           }
           else{
+              if(horaFinSel!= null && horaInSel!= null && member != null){
               AlertText.setText("Horario escogido no valido ");
               AlertImage.setVisible(true);
               AlertText.setVisible(true);
@@ -185,7 +186,8 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
               horaInSel = null;
               horaFinSel = null;
               System.out.println(member.getNickName());
-              espera4();   
+              espera4();  
+              }
           }
     }
         
