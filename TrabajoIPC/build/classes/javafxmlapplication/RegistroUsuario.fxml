@@ -227,7 +227,7 @@
                      <children>
                         <VBox alignment="CENTER" spacing="15.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;" styleClass="paneles">
                            <children>
-                              <HBox fx:id="colliderFoto" alignment="CENTER">
+                              <HBox alignment="CENTER">
                                  <children>
                                     <ImageView fx:id="flechaIzq" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#izqImage" pickOnBounds="true" preserveRatio="true">
                                        <image>

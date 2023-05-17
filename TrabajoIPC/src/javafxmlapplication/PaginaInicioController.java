@@ -99,6 +99,7 @@ public class PaginaInicioController implements Initializable {
         });
         
         //Script que elimine todas las reservas cuyo tiempo ya ha pasado desde que se abre la aplicación
+        
         try{
             ArrayList<Booking> allBookings = greenBall.getBookings();
             for(int i = 0; i < allBookings.size(); i++){
@@ -311,15 +312,14 @@ public class PaginaInicioController implements Initializable {
         //Pruebas de testing => ya introducida
         /*
         try{
-            LocalDate ld = LocalDate.of(2023, 5, 16);
-            LocalDateTime lct = LocalDateTime.of(2023, 5, 16, 10, 0, 0);
-            LocalTime lt = LocalTime.of(10, 0);
+            LocalDate ld = LocalDate.of(2023, 5, 17);
+            LocalDateTime lct = LocalDateTime.of(2023, 5, 17, 18, 0, 0);
+            LocalTime lt = LocalTime.of(18, 0);
             greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "hola"));
             System.out.println(greenBall.getBookings().size());
         }catch(Exception e){
             
         }*/
-        
         
     }    
     

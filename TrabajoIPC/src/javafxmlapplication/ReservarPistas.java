@@ -45,8 +45,6 @@ public class ReservarPistas implements Initializable {
     
     
      
-    @FXML
-    private GridPane gridpane;
     /**
      * Initializes the controller class.
      */
@@ -68,8 +66,8 @@ public class ReservarPistas implements Initializable {
     @FXML
     private void cambio_1(MouseEvent event) {
         
-        JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -86,8 +84,8 @@ public class ReservarPistas implements Initializable {
     @FXML
     private void cambio_2(MouseEvent event) {
         
-        JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -104,8 +102,8 @@ public class ReservarPistas implements Initializable {
     
     @FXML
     private void cambio_3(MouseEvent event) {
-        JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -120,8 +118,8 @@ public class ReservarPistas implements Initializable {
 
     @FXML
     private void cambio_4(MouseEvent event) {
-        JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -136,8 +134,8 @@ public class ReservarPistas implements Initializable {
 
     @FXML
     private void cambio_5(MouseEvent event) {
-       JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+       JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -152,8 +150,8 @@ public class ReservarPistas implements Initializable {
 
     @FXML
     private void cambio_6(MouseEvent event) {
-        JavaFXMLApplication.setRoot("PistaEspecifica");
-        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("PistaEspecifica");
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
         
         controller.cambioMember(member);
          pistas =greenBall.getCourts();
@@ -244,6 +242,10 @@ public class ReservarPistas implements Initializable {
     
     public void cambioMember(Member m){
         member = m;
+    }
+
+    @FXML
+    private void cambio_1(TouchEvent event) {
     }
     
     

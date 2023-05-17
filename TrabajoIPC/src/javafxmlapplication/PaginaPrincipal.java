@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 
 import model.*;
@@ -67,7 +68,8 @@ public class PaginaPrincipal implements Initializable {
     private void goMisReservas(){
         JavaFXMLApplication.setRoot("MisReservas");
         MisReservas controller = (MisReservas) JavaFXMLApplication.getController("MisReservas");
-        //controller.cambioMember(member);
+        controller.cambiarUser(member);
+        controller.actualizarTabla();
     }
     
     @FXML
@@ -92,6 +94,13 @@ public class PaginaPrincipal implements Initializable {
 
 	public String passUser(){
         return member.getNickName();
+    }
+
+    @FXML
+    private void goMisDatos(MouseEvent event) {
+        JavaFXMLApplication.setRoot("CambioDatos");
+        CambioDatos controller = (CambioDatos) JavaFXMLApplication.getController("CambioDatos");
+        controller.cambiarUser(member);
     }
     
 }
