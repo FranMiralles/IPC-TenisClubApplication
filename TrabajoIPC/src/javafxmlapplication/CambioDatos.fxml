@@ -11,190 +11,245 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="661.0" prefWidth="832.0" style="-fx-background-color: #7bcb53;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CambioDatos">
+<BorderPane id="borderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="723.0" prefWidth="922.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondo.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.CambioDatos">
    <top>
-      <HBox alignment="CENTER" prefHeight="76.0" prefWidth="606.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
-         <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Datos Usuario">
-               <font>
-                  <Font size="35.0" />
-               </font>
-            </Text>
-         </children>
+      <HBox alignment="CENTER" spacing="10.0" style="-fx-background-color: #24740c;" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <BorderPane.margin>
             <Insets />
          </BorderPane.margin>
          <padding>
-            <Insets bottom="10.0" left="10.0" right="20.0" />
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
          </padding>
+         <children>
+            <Label styleClass="titulo" text="DATOS PERSONALES" />
+         </children>
       </HBox>
    </top>
    <bottom>
-      <HBox prefHeight="60.0" prefWidth="606.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER" />
+      <HBox style="-fx-background-color: #24740c;" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
+         <children>
+            <Button mnemonicParsing="false" onAction="#volver" text="Volver" />
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding></HBox>
    </bottom>
    <center>
-      <HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <StackPane styleClass="char" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="CENTER" maxHeight="651.0" HBox.hgrow="ALWAYS">
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="595.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="791.0" />
+            <HBox alignment="CENTER" spacing="35.0">
                <children>
-                  <VBox alignment="CENTER" maxHeight="581.0" maxWidth="400.0" minWidth="-Infinity" prefHeight="485.0" prefWidth="320.0" spacing="15.0">
+                  <VBox alignment="CENTER_LEFT" spacing="35.0">
                      <children>
-                        <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
+                        <VBox spacing="8.0" style="-fx-background-color: #a4dc8c; -fx-border-color: #24740c;" styleClass="paneles">
                            <children>
-                              <Label alignment="CENTER" text="Nombre">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                              </Label>
-                              <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="125.0">
-                                 <VBox.margin>
-                                    <Insets />
-                                 </VBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
-                                 </cursor>
-                              </TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label text="Apellidos">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0">
-                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
-                                 </cursor>
-                              </TextField>
-                           </children>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label text="Teléfono">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="109.0">
-                                 <cursor>
-                                    <Cursor fx:constant="TEXT" />
-                                 </cursor>
-                              </TextField>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label text="Nombre de usuario">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <Label text="Albertin69_BIGDICK" textFill="#595959" />
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <padding>
-                                    <Insets top="3.0" />
-                                 </padding>
-                              </HBox>
-                           </children>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
-                           <padding>
-                              <Insets left="5.0" right="5.0" top="5.0" />
-                           </padding>
-                        </VBox>
-                        <VBox alignment="CENTER_LEFT" layoutX="15.0" layoutY="304.0" prefHeight="152.0" prefWidth="270.0" spacing="5.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Label prefHeight="27.0" prefWidth="70.0" text="Contraseña">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" />
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <VBox alignment="CENTER_LEFT" spacing="5.0">
                                  <children>
-                                    <ImageView fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/ExclamationIcon.png" />
-                                       </image>
-                                    </ImageView>
-                                    <Label minHeight="-Infinity" text="La contraseña debe tener mínimo 6 caracteres y estar formado por una combinación de letras y números" textFill="#e81919" wrapText="true">
+                                    <Label alignment="CENTER" text="Nombre">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
-                                       <padding>
-                                          <Insets left="5.0" />
-                                       </padding>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
                                     </Label>
+                                    <TextField fx:id="nombre" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="125.0" promptText="Antonio">
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="nameAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="nameAlert" text="No debe estar vacío" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
-                                 <padding>
-                                    <Insets top="3.0" />
-                                 </padding>
-                              </HBox>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                 <children>
+                                    <Label text="Apellidos">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="apellidos" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="200.0" promptText="Fernández Rodríguez">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="apellidosAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="apellidosAlert" text="No debe estar vacío" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
-                           <VBox.margin>
-                              <Insets />
-                           </VBox.margin>
+                        </VBox>
+                        <VBox spacing="8.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;" styleClass="paneles">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="5.0">
+                                 <children>
+                                    <Label text="Nombre de usuario">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="nick" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="125.0" promptText="Toni">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="userAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="userAlert" text="No se puede modificar" textFill="#7c7c7c">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="5.0">
+                                 <children>
+                                    <Label text="Contraseña">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="pwd" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="********" />
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="pwdAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="pwdAlert" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="350.0" text="Utiliza 6 carácteres como mínimo usando letras y números" textFill="#7c7c7c" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="5.0">
+                                 <children>
+                                    <Label text="Confirmar contraseña">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <PasswordField fx:id="pwd1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="150.0" promptText="********" />
+                                    <HBox spacing="5.0">
+                                       <children>
+                                          <ImageView fx:id="pwd1AlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="pwd1Alert" minHeight="-Infinity" text="Debe ser igual a la contraseña" textFill="#7c7c7c" wrapText="true">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                           </padding>
                         </VBox>
                      </children>
+                     <HBox.margin>
+                        <Insets />
+                     </HBox.margin>
                      <padding>
-                        <Insets bottom="35.0" left="15.0" right="35.0" top="35.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </VBox>
-                  <VBox maxHeight="525.0" maxWidth="459.0" prefHeight="525.0" prefWidth="459.0">
+                  <VBox alignment="CENTER_LEFT" spacing="35.0">
                      <children>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+                        <VBox alignment="CENTER" spacing="15.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;" styleClass="paneles">
                            <children>
-                              <Button mnemonicParsing="false" style="-fx-background-color: #7bcb53;">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                              <HBox fx:id="colliderFoto" alignment="CENTER">
+                                 <children>
+                                    <ImageView fx:id="flechaIzq" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#izqImage" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/Flecha-Izq.png" />
                                        </image>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets top="15.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <ImageView fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
-                                 <effect>
-                                    <DropShadow />
-                                 </effect>
-                              </ImageView>
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" style="-fx-background-color: #7bcb53;">
-                                 <graphic>
-                                    <ImageView fitHeight="23.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                                    <ImageView fx:id="foto" fitHeight="150.0" fitWidth="120.0" pickOnBounds="true" preserveRatio="true">
+                                       <effect>
+                                          <DropShadow>
+                                             <color>
+                                                <Color red="0.1411764770746231" green="0.45490196347236633" blue="0.0470588244497776" />
+                                             </color>
+                                          </DropShadow>
+                                       </effect>
+                                       <image>
+                                          <Image url="@../avatars/default.png" />
+                                       </image>
+                                    </ImageView>
+                                    <ImageView fx:id="flechaDer" fitHeight="35.0" fitWidth="35.0" onMouseClicked="#derImage" pickOnBounds="true" preserveRatio="true">
                                        <image>
                                           <Image url="@../images/Flecha-Der.png" />
                                        </image>
@@ -202,46 +257,70 @@
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </ImageView>
-                                 </graphic>
-                                 <HBox.margin>
-                                    <Insets top="15.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                                 </children>
+                              </HBox>
+                              <Button mnemonicParsing="false" onAction="#buscarImage" text="Elegir Imagen desde Archivo" />
                            </children>
                            <padding>
-                              <Insets right="65.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
-                        </HBox>
-                        <VBox alignment="CENTER" prefHeight="240.0" prefWidth="428.0" spacing="5.0">
+                        </VBox>
+                        <VBox alignment="CENTER" maxWidth="-Infinity" spacing="8.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;" styleClass="paneles">
                            <children>
-                              <HBox prefHeight="100.0" prefWidth="200.0">
+                              <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                    <Label text="Teléfono">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="tel" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="95.0" promptText="652743319">
+                                       <cursor>
+                                          <Cursor fx:constant="TEXT" />
+                                       </cursor>
+                                    </TextField>
+                                    <HBox spacing="5.0">
                                        <children>
-                                          <Label minWidth="-Infinity" prefWidth="135.0" text="Nº Tarjeta de crédito">
+                                          <ImageView fx:id="telAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                             <image>
+                                                <Image url="@../images/ExclamationIcon.png" />
+                                             </image>
+                                          </ImageView>
+                                          <Label fx:id="telAlert" text="Mínimo 9 dígitos" textFill="#7c7c7c">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <HBox prefHeight="100.0" prefWidth="200.0">
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="5.0" right="5.0" top="5.0" />
+                                 </padding>
+                              </VBox>
+                              <HBox spacing="15.0">
+                                 <children>
+                                    <VBox spacing="5.0">
+                                       <children>
+                                          <Label minWidth="-Infinity" prefWidth="150.0" text="Nº Tarjeta de crédito">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <HBox>
                                              <children>
-                                                <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" text="1234">
+                                                <TextField fx:id="tar1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" promptText="1234">
                                                    <cursor>
                                                       <Cursor fx:constant="TEXT" />
                                                    </cursor>
                                                 </TextField>
-                                                <TextField layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" text="1234">
-                                                   <cursor>
-                                                      <Cursor fx:constant="TEXT" />
-                                                   </cursor>
-                                                   <HBox.margin>
-                                                      <Insets left="5.0" />
-                                                   </HBox.margin>
-                                                </TextField>
-                                                <TextField layoutX="50.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" text="1234">
+                                                <TextField fx:id="tar2" layoutX="10.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" promptText="1234">
                                                    <cursor>
                                                       <Cursor fx:constant="TEXT" />
                                                    </cursor>
@@ -249,7 +328,15 @@
                                                       <Insets left="5.0" />
                                                    </HBox.margin>
                                                 </TextField>
-                                                <TextField layoutX="90.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="40.0" text="1234">
+                                                <TextField fx:id="tar3" layoutX="50.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" promptText="1234">
+                                                   <cursor>
+                                                      <Cursor fx:constant="TEXT" />
+                                                   </cursor>
+                                                   <HBox.margin>
+                                                      <Insets left="5.0" />
+                                                   </HBox.margin>
+                                                </TextField>
+                                                <TextField fx:id="tar4" layoutX="90.0" layoutY="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="50.0" promptText="1234">
                                                    <cursor>
                                                       <Cursor fx:constant="TEXT" />
                                                    </cursor>
@@ -261,61 +348,113 @@
                                           </HBox>
                                        </children>
                                     </VBox>
-                                    <VBox layoutX="10.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                                    <VBox layoutX="10.0" layoutY="10.0" minWidth="-Infinity" spacing="5.0">
                                        <children>
-                                          <Label minWidth="-Infinity" prefWidth="135.0" text="CSV">
+                                          <Label maxWidth="-Infinity" minWidth="-Infinity" text="CSV">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="36.0" text="123">
+                                          <TextField fx:id="csv" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="45.0" promptText="123">
                                              <cursor>
                                                 <Cursor fx:constant="TEXT" />
                                              </cursor>
                                           </TextField>
                                        </children>
-                                       <padding>
-                                          <Insets left="20.0" />
-                                       </padding>
                                     </VBox>
                                  </children>
                               </HBox>
+                              <HBox spacing="5.0">
+                                 <children>
+                                    <ImageView fx:id="tarAlertImage1" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/ExclamationIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="tarAlert1" text="Mínimo 4 dígitos en tarjeta" textFill="#7c7c7c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox layoutX="19.0" layoutY="184.0" spacing="5.0">
+                                 <children>
+                                    <ImageView fx:id="csvAlertImage" fitHeight="15.0" fitWidth="15.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                                       <image>
+                                          <Image url="@../images/ExclamationIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="csvAlert" text="Mínimo 3 dígitos en csv" textFill="#7c7c7c">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
+                                 </padding>
+                              </HBox>
                            </children>
                            <padding>
-                              <Insets bottom="5.0" left="5.0" right="5.0" top="225.0" />
+                              <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
                         </VBox>
-                        <HBox alignment="CENTER" prefHeight="100.0" prefWidth="250.0">
+                        <VBox alignment="CENTER" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;" styleClass="paneles">
                            <children>
-                              <Button mnemonicParsing="false" text="Aceptar">
-                                 <HBox.margin>
-                                    <Insets left="20.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
-                              <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Cancelar">
-                                 <HBox.margin>
-                                    <Insets left="10.0" />
-                                 </HBox.margin>
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor>
-                              </Button>
+                              <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="35.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/cancel_white.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                    <Button maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#aceptar" text="Aceptar">
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <graphic>
+                                          <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/accept_white.png" />
+                                             </image>
+                                          </ImageView>
+                                       </graphic>
+                                    </Button>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                                 <padding>
+                                    <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                 </padding>
+                              </HBox>
                            </children>
-                        </HBox>
+                        </VBox>
                      </children>
                      <padding>
-                        <Insets left="50.0" top="50.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                      </padding>
                   </VBox>
                </children>
-               <padding>
-                  <Insets bottom="55.0" left="100.0" right="55.0" top="55.0" />
-               </padding>
             </HBox>
          </children>
-      </HBox>
+      </StackPane>
    </center>
 </BorderPane>

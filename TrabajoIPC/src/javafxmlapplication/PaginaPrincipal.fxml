@@ -87,7 +87,7 @@
             </HBox>
             <HBox fx:id="userFeatures" spacing="15.0" style="-fx-background-color: #74a464;">
                <children>
-                  <Label text="Mis Datos" textFill="WHITE">
+                  <Label onMouseClicked="#goMisDatos" text="Mis Datos" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor></Label>
