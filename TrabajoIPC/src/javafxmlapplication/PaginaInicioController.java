@@ -75,13 +75,11 @@ public class PaginaInicioController implements Initializable {
         }
         
         iniSesion.setOnMouseEntered(event -> {
-            iniSesion.setUnderline(true);
             iniSesion.setTextFill(Color.LIGHTBLUE);
             iniSesion.setStyle("-fx-font-weight: bold");
         });
 
         iniSesion.setOnMouseExited(event -> {
-            iniSesion.setUnderline(false);
             iniSesion.setTextFill(Color.WHITE);
             iniSesion.setStyle("<font-weight>: regular");
         });
@@ -153,7 +151,7 @@ public class PaginaInicioController implements Initializable {
         columnaEstado.setCellValueFactory(new PropertyValueFactory<>("estadoPath"));
         columnaEstado.setCellFactory( c -> new ImagenTabCell());
         
-        //Principio organizar al centro las columnas
+        //Organizar al centro las columnas
         columnaIni.setCellFactory(column -> {
             TableCell<Item, String> cell = new TableCell<Item, String>() {
                 @Override
@@ -210,7 +208,7 @@ public class PaginaInicioController implements Initializable {
             return cell;
         });
         
-        //Fin organizar al centro las columnas
+        
         
         tabla.setRowFactory(row -> new TableRow<Item>() {
             @Override
@@ -312,9 +310,9 @@ public class PaginaInicioController implements Initializable {
         //Pruebas de testing => ya introducida
         /*
         try{
-            LocalDate ld = LocalDate.of(2023, 5, 17);
-            LocalDateTime lct = LocalDateTime.of(2023, 5, 17, 18, 0, 0);
-            LocalTime lt = LocalTime.of(18, 0);
+            LocalDate ld = LocalDate.of(2023, 5, 18);
+            LocalDateTime lct = LocalDateTime.of(2023, 5, 18, 19, 0, 0);
+            LocalTime lt = LocalTime.of(19, 0);
             greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "hola"));
             System.out.println(greenBall.getBookings().size());
         }catch(Exception e){
@@ -344,7 +342,7 @@ public class PaginaInicioController implements Initializable {
         actualizarTabla();
     }
     
-    private void actualizarTabla(){
+    public void actualizarTabla(){
         //Actualizar tabla
         for(int i = 0; i < bookingList.size(); i++){
             Item item = bookingList.get(i);

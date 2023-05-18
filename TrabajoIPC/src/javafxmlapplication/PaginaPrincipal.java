@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxmlapplication;
 
 
@@ -82,6 +78,8 @@ public class PaginaPrincipal implements Initializable {
     @FXML
     private void goInicio(){
         JavaFXMLApplication.setRoot("PaginaInicio");
+        PaginaInicioController controller = (PaginaInicioController)JavaFXMLApplication.getController("PaginaInicio");
+        controller.actualizarTabla();
     }
     
     public void cambiarUser(Member m){

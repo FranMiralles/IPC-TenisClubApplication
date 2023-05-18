@@ -327,17 +327,6 @@ public class CambioDatos implements Initializable {
         }
     }
 
-    private void cancelar() {
-        limpiarCampos();
-        JavaFXMLApplication.setRoot("PaginaPricipal");
-    }
-    
-    @FXML
-    private void eliminar() {
-        limpiarCampos();
-        JavaFXMLApplication.setRoot("PaginaPricipal");
-    }
-    
     @FXML
     private void derImage(){
         i++;

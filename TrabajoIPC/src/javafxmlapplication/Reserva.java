@@ -13,6 +13,7 @@ public class Reserva{
     private final StringProperty horaIni = new SimpleStringProperty();
     private final StringProperty horaFin = new SimpleStringProperty();
     private final StringProperty pagado = new SimpleStringProperty();
+    private final BooleanProperty colored = new SimpleBooleanProperty();
     private Booking reserva;
     
     public Reserva(Booking booking){
@@ -21,8 +22,21 @@ public class Reserva{
         dia.setValue(booking.getMadeForDay().getDayOfMonth() + "/" + booking.getMadeForDay().getMonthValue() + "/" + booking.getMadeForDay().getYear());
         horaIni.setValue(booking.getFromTime().getHour() + ":00");
         horaFin.setValue((booking.getFromTime().getHour() + 1) + ":00");
-        if(booking.getPaid()){pagado.setValue("Pagado");}
-        else {pagado.setValue("No pagado");}
+        if(booking.getPaid()){pagado.setValue("images/accept_white.png");}
+        else {pagado.setValue("images/cancel_white.png");}
+        colored.setValue(booking.getPaid());
+    }
+    
+    public BooleanProperty ColoredProperty(){
+        return colored;
+    }
+    
+    public boolean getColored(){
+        return colored.getValue();
+    }
+    
+    public void setColored(boolean colored){
+        this.colored.setValue(colored);
     }
     
     public Booking getBooking(){

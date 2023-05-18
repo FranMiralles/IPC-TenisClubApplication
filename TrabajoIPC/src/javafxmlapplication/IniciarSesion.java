@@ -12,6 +12,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.paint.Color;
 
 import model.*;
 
@@ -26,7 +27,9 @@ public class IniciarSesion implements Initializable {
     private ImageView alertImage;
     @FXML
     private Label alertText;
-    
+    @FXML
+    private Label registrarse;
+        
     Club greenBall;
     
     
@@ -72,6 +75,16 @@ public class IniciarSesion implements Initializable {
             if (!newValue) {
                 cambiarEstiloPwdEmpty();
             }
+        });
+        
+        registrarse.setOnMouseEntered(event -> {
+            
+            registrarse.setStyle("-fx-font-weight: bold; -fx-text-fill: #24740c");
+        });
+
+        registrarse.setOnMouseExited(event -> {
+            registrarse.setTextFill(Color.WHITE);
+            registrarse.setStyle("<font-weight>: regular");
         });
     }    
     
@@ -121,6 +134,8 @@ public class IniciarSesion implements Initializable {
     private void volver(){
         reiniciar();
         JavaFXMLApplication.setRoot("PaginaInicio");
+        PaginaInicioController controller = (PaginaInicioController)JavaFXMLApplication.getController("PaginaInicio");
+        controller.actualizarTabla();
     }
     
     private void reiniciar(){
