@@ -17,6 +17,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -242,6 +243,7 @@ public class CambioDatos implements Initializable {
                 tar1.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
+
         
         //Errores en tar1
         tar1.setOnKeyTyped(event -> cambiarEstiloTar1());
@@ -384,11 +386,22 @@ public class CambioDatos implements Initializable {
         boolean nickValido = !nick.getText().isEmpty();
         boolean pwdValida = pwd.getText().length() >= 6;
         boolean pwd1Valida = pwd1.getText().equals(pwd.getText());
-        boolean tarjetaValida = tar1.getText().length() == 4 &&
+        /*
+        boolean tarjetaValida = (tar1.getText().length() == 4 &&
                                 tar2.getText().length() == 4 &&
                                 tar3.getText().length() == 4 &&
-                                tar4.getText().length() == 4;
+                                tar4.getText().length() == 4) || (tar1.getText().length() == 0 &&
+                                tar2.getText().length() == 0 &&
+                                tar3.getText().length() == 0 &&
+                                tar4.getText().length() == 0) ;
+        boolean csvValido = csv.getText().length() == 3 || csv.getText().length() == 0;*/
+        
+        boolean tarjetaValida = (tar1.getText().length() == 4 &&
+                                tar2.getText().length() == 4 &&
+                                tar3.getText().length() == 4 &&
+                                tar4.getText().length() == 4) ;
         boolean csvValido = csv.getText().length() == 3;
+        
         
         nameAlertImage.setVisible(!nombreValido);
         nameAlert.setStyle(nombreValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
@@ -415,6 +428,7 @@ public class CambioDatos implements Initializable {
         if(!mandado && !telValido){tel.requestFocus(); mandado = true;}
         
         if(!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty() || !csv.getText().isEmpty()){
+            
             tarAlertImage1.setVisible(!tarjetaValida);
             tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
             if(!mandado && tar1.getText().length() != 4){tar1.requestFocus(); mandado = true;}
@@ -429,6 +443,7 @@ public class CambioDatos implements Initializable {
             return nombreValido && apellidosValidos && telValido && nickValido && pwdValida && pwd1Valida && tarjetaValida && csvValido;
         }
         else{
+            
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
 

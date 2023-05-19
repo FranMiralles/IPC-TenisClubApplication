@@ -12,6 +12,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
@@ -288,6 +289,13 @@ public class PaginaInicioController implements Initializable {
                 tabla.refresh();
             }
         });
+        fecha.setDayCellFactory(picker -> new DateCell(){
+            public void updateItem(LocalDate date, boolean empty){
+                super.updateItem(date, empty);
+                setDisable(date.isBefore(LocalDate.now()));
+            }
+        });
+        
         
         //Agrandar flechas si estás encima
         derFlecha.setOnMouseEntered(event -> {
@@ -310,10 +318,10 @@ public class PaginaInicioController implements Initializable {
         //Pruebas de testing => ya introducida
         /*
         try{
-            LocalDate ld = LocalDate.of(2023, 5, 18);
-            LocalDateTime lct = LocalDateTime.of(2023, 5, 18, 19, 0, 0);
-            LocalTime lt = LocalTime.of(19, 0);
-            greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "hola"));
+            LocalDate ld = LocalDate.of(2023, 5, 20);
+            LocalDateTime lct = LocalDateTime.of(2023, 5, 20, 18, 0, 0);
+            LocalTime lt = LocalTime.of(18, 0);
+            greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "holahola1"));
             System.out.println(greenBall.getBookings().size());
         }catch(Exception e){
             
