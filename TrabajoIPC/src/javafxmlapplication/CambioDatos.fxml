@@ -52,7 +52,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" spacing="5.0">
                                  <children>
-                                    <Label alignment="CENTER" text="Nombre">
+                                    <Label alignment="CENTER" text="Nombre *">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -89,7 +89,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" spacing="5.0">
                                  <children>
-                                    <Label text="Apellidos">
+                                    <Label text="Apellidos *">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -158,7 +158,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="5.0">
                                  <children>
-                                    <Label text="Contraseña">
+                                    <Label text="Contraseña *">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -185,7 +185,7 @@
                               </VBox>
                               <VBox alignment="CENTER_LEFT" maxHeight="-Infinity" minHeight="-Infinity" spacing="5.0">
                                  <children>
-                                    <Label text="Confirmar contraseña">
+                                    <Label text="Confirmar contraseña *">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -269,7 +269,7 @@
                            <children>
                               <VBox alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Label text="Teléfono">
+                                    <Label text="Teléfono *">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
@@ -407,7 +407,7 @@
                            <children>
                               <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="35.0" VBox.vgrow="ALWAYS">
                                  <children>
-                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar">
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#eliminar" text="Cancelar">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
