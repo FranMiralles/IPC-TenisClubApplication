@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxmlapplication;
 
 import java.net.URL;
@@ -79,12 +75,11 @@ public class IniciarSesion implements Initializable {
         
         registrarse.setOnMouseEntered(event -> {
             
-            registrarse.setStyle("-fx-font-weight: bold; -fx-text-fill: #24740c");
+            registrarse.setStyle("-fx-text-fill: #24740c");
         });
 
         registrarse.setOnMouseExited(event -> {
-            registrarse.setTextFill(Color.WHITE);
-            registrarse.setStyle("<font-weight>: regular");
+            registrarse.setStyle("-fx-text-fill: #ffffff");
         });
     }    
     
@@ -144,6 +139,7 @@ public class IniciarSesion implements Initializable {
         alertImage.setVisible(false);
         alertText.setText("Inicia con tus credenciales");
         alertText.setStyle("-fx-text-fill: #7c7c7c;");
+        registrarse.setStyle("-fx-text-fill: #ffffff");
     }
     //Mostrar errores en nickname cuando no está registrado
     private void cambiarEstiloNick() {

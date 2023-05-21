@@ -77,24 +77,24 @@ public class PaginaInicioController implements Initializable {
         
         iniSesion.setOnMouseEntered(event -> {
             iniSesion.setTextFill(Color.LIGHTBLUE);
-            iniSesion.setStyle("-fx-font-weight: bold");
+            //iniSesion.setStyle("-fx-font-weight: bold");
         });
 
         iniSesion.setOnMouseExited(event -> {
             iniSesion.setTextFill(Color.WHITE);
-            iniSesion.setStyle("<font-weight>: regular");
+            //iniSesion.setStyle("<font-weight>: regular");
         });
         
         regist.setOnMouseEntered(event -> {
             regist.setUnderline(true);
             regist.setTextFill(Color.LIGHTBLUE);
-            regist.setStyle("-fx-font-weight: bold");
+            //regist.setStyle("-fx-font-weight: bold");
         });
 
         regist.setOnMouseExited(event -> {
             regist.setUnderline(false);
             regist.setTextFill(Color.WHITE);
-            regist.setStyle("<font-weight>: regular");
+            //regist.setStyle("<font-weight>: regular");
         });
         
         //Script que elimine todas las reservas cuyo tiempo ya ha pasado desde que se abre la aplicación
