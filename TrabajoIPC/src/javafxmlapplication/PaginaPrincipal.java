@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 import model.*;
 
@@ -26,25 +27,35 @@ public class PaginaPrincipal implements Initializable {
     private Label name;
     @FXML
     private Label cerrarSesion;
+    @FXML
+    private VBox bordeFoto;
     
     private Member member;
+    
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         userFeatures.setVisible(false);
-        userFeatures.setManaged(false);
         
         user.setOnMouseEntered(event -> {
             user.setUnderline(true);
             user.setTextFill(Color.LIGHTBLUE);
-            user.setStyle("-fx-font-weight: bold");
+            //user.setStyle("-fx-font-weight: bold");
         });
 
         user.setOnMouseExited(event -> {
             user.setUnderline(false);
             user.setTextFill(Color.WHITE);
-            user.setStyle("<font-weight>: regular");
+            //user.setStyle("<font-weight>: regular");
+        });
+        
+        perfil.setOnMouseEntered(event -> {
+           bordeFoto.setStyle("-fx-background-color: lightblue");
+        });
+        
+        perfil.setOnMouseExited(event -> {
+            bordeFoto.setStyle("-fx-background-color: gray");
         });
     }
     
@@ -52,11 +63,9 @@ public class PaginaPrincipal implements Initializable {
     private void activeToolBar(){
         if(userFeatures.isVisible()){
             userFeatures.setVisible(false);
-            userFeatures.setManaged(false);
             
         }else{
             userFeatures.setVisible(true);
-            userFeatures.setManaged(true);
         }
     }
     
