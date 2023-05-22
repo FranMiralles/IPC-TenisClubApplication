@@ -1,7 +1,6 @@
 package javafxmlapplication;
 
 
-import javafx.scene.paint.Color;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -65,13 +64,13 @@ public class PaginaPrincipal implements Initializable {
         
         user.setOnMouseEntered(event -> {
             user.setUnderline(true);
-            user.setTextFill(Color.LIGHTBLUE);
+            user.setStyle("-fx-text-fill: lightblue");
             //user.setStyle("-fx-font-weight: bold");
         });
 
         user.setOnMouseExited(event -> {
             user.setUnderline(false);
-            user.setTextFill(Color.WHITE);
+            user.setStyle("-fx-text-fill: white");
             //user.setStyle("<font-weight>: regular");
         });
         
@@ -138,10 +137,10 @@ public class PaginaPrincipal implements Initializable {
     
     @FXML
     private void goMisReservas(){
-        JavaFXMLApplication.setRoot("MisReservas");
         MisReservas controller = (MisReservas) JavaFXMLApplication.getController("MisReservas");
         controller.cambiarUser(member);
         controller.actualizarTabla();
+        JavaFXMLApplication.setRoot("MisReservas");
     }
     
     @FXML

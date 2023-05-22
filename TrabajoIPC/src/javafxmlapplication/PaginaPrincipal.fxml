@@ -42,7 +42,7 @@
                      <children>
                         <Label fx:id="user" onMouseClicked="#activeToolBar" text="Usuario" textFill="WHITE">
                            <font>
-                              <Font size="16.0" />
+                              <Font name="System Bold" size="16.0" />
                            </font>
                            <cursor>
                               <Cursor fx:constant="HAND" />
