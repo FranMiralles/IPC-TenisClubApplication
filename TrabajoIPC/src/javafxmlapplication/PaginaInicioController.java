@@ -105,10 +105,6 @@ public class PaginaInicioController implements Initializable {
                 Booking reserva = allBookings.get(i);
                 if(reserva.getMadeForDay().compareTo(LocalDate.now()) < 0){
                     greenBall.removeBooking(reserva);
-                }else if(reserva.getMadeForDay().compareTo(LocalDate.now()) == 0){
-                    if(reserva.getFromTime().compareTo(LocalTime.now()) < 0){
-                        greenBall.removeBooking(reserva);
-                    }
                 }
             }
         }catch(Exception e){
@@ -318,9 +314,9 @@ public class PaginaInicioController implements Initializable {
         //Pruebas de testing => ya introducida
         /*
         try{
-            LocalDate ld = LocalDate.of(2023, 5, 20);
-            LocalDateTime lct = LocalDateTime.of(2023, 5, 20, 18, 0, 0);
-            LocalTime lt = LocalTime.of(18, 0);
+            LocalDate ld = LocalDate.of(2023, 5, 23);
+            LocalDateTime lct = LocalDateTime.of(2023, 5, 23, 21, 0, 0);
+            LocalTime lt = LocalTime.of(21, 0);
             greenBall.registerBooking(lct, ld, lt, true, listaPistas.get(0), greenBall.getMemberByCredentials("hola", "holahola1"));
             System.out.println(greenBall.getBookings().size());
         }catch(Exception e){

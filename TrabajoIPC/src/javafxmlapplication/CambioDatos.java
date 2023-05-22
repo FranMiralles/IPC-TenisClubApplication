@@ -703,8 +703,11 @@ public class CambioDatos implements Initializable {
     //Método para crear una alerta
     private void mostrarAlert(){
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("");
-        alert.setHeaderText("Datos modificados con éxito");
+        alert.setTitle("Cambio Datos");
+        alert.setHeaderText(null);
+        alert.setContentText("Datos modificados con éxito");
+        alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+        alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
         alert.showAndWait();
     }
     

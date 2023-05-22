@@ -738,9 +738,11 @@ private boolean verificarCampos() {
     //Método para crear una alerta
     private void mostrarAlert(){
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("");
-        alert.setHeaderText("Registro completado");
-        alert.setContentText("Para continuar debes autenticarte a continuación");
+        alert.setTitle("Registro completado");
+        alert.setHeaderText(null);
+        alert.setContentText("Inicia sesión para usar la aplicación");
+        alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+        alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
         alert.showAndWait();
     }
     

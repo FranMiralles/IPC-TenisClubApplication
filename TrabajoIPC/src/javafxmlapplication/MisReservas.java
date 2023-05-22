@@ -1,17 +1,11 @@
 package javafxmlapplication;
 
 import java.net.URL;
-import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.beans.binding.Bindings;
-import javafx.beans.property.BooleanProperty;
-import javafx.beans.property.SimpleBooleanProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -21,12 +15,17 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.ButtonBar;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableRow;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 
 
 public class MisReservas implements Initializable {
@@ -43,10 +42,28 @@ public class MisReservas implements Initializable {
     private TableColumn<Reserva, String> pagado;
     @FXML
     private TableView<Reserva> tabla;
-
+    @FXML
+    private Button eliminar;
+    @FXML
+    private Button pagar;
+    @FXML
+    private VBox bordeFoto;
+    @FXML
+    private ImageView perfil;
+    @FXML
+    private Label user;
+    @FXML
+    private Label name;
+    @FXML
+    private HBox userFeatures;
+    @FXML
+    private Label cerrarSesion;
+    
     private Member member;
     private Club greenBall;
     ObservableList<Reserva> bookingList;
+    
+    
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -63,7 +80,7 @@ public class MisReservas implements Initializable {
         hIni.setCellValueFactory(new PropertyValueFactory<>("horaIni"));
         hFin.setCellValueFactory(new PropertyValueFactory<>("horaFin"));
         pagado.setCellValueFactory(new PropertyValueFactory<>("pagado"));
-        pagado.setCellFactory( c -> new ImagenTabCell());
+        pagado.setCellFactory( c -> new ImagenTabCellMisReservas());
         
         //Principio organizar al centro las columnas
         pista.setCellFactory(column -> {
@@ -73,6 +90,7 @@ public class MisReservas implements Initializable {
                     super.updateItem(item, empty);
                     if (empty || item == null) {
                         setText(null);
+                        setStyle("-fx-background-color: #a4dc8c;");
                     } else {
                         setText(item);
                     }
@@ -89,6 +107,7 @@ public class MisReservas implements Initializable {
                     super.updateItem(item, empty);
                     if (empty || item == null) {
                         setText(null);
+                        setStyle("-fx-background-color: #a4dc8c;");
                     } else {
                         setText(item);
                     }
@@ -105,6 +124,7 @@ public class MisReservas implements Initializable {
                     super.updateItem(item, empty);
                     if (empty || item == null) {
                         setText(null);
+                        setStyle("-fx-background-color: #a4dc8c;");
                     } else {
                         setText(item);
                     }
@@ -121,6 +141,7 @@ public class MisReservas implements Initializable {
                     super.updateItem(item, empty);
                     if (empty || item == null) {
                         setText(null);
+                        setStyle("-fx-background-color: #a4dc8c;");
                     } else {
                         setText(item);
                     }
@@ -131,7 +152,7 @@ public class MisReservas implements Initializable {
         });
         
         pagado.setCellFactory(column -> {
-            ImagenTabCell cell = new ImagenTabCell() {
+            ImagenTabCellMisReservas cell = new ImagenTabCellMisReservas() {
                 
             };
             cell.setAlignment(Pos.CENTER);
@@ -155,21 +176,51 @@ public class MisReservas implements Initializable {
                 }
             }
         });
+        
+        // Disable property
+        eliminar.disableProperty().bind(Bindings.equal(tabla.getSelectionModel().selectedIndexProperty(), -1));
+        pagar.disableProperty().bind(Bindings.equal(tabla.getSelectionModel().selectedIndexProperty(), -1));
+        
+        // Barra de usuario
+        userFeatures.setVisible(false);
+        
+        user.setOnMouseEntered(event -> {
+            user.setUnderline(true);
+            user.setStyle("-fx-text-fill: lightblue");
+            //user.setStyle("-fx-font-weight: bold");
+        });
+
+        user.setOnMouseExited(event -> {
+            user.setUnderline(false);
+            user.setStyle("-fx-text-fill: white");
+            //user.setStyle("<font-weight>: regular");
+        });
+        
+        perfil.setOnMouseEntered(event -> {
+           bordeFoto.setStyle("-fx-background-color: lightblue");
+        });
+        
+        perfil.setOnMouseExited(event -> {
+            bordeFoto.setStyle("-fx-background-color: gray");
+        });
     }
     
     
     public void cambiarUser(Member m){
-        this.member = m;
+        member = m;
+        user.setText(member.getNickName());
+        name.setText(member.getName());
+        perfil.setImage(member.getImage());
     }
     
     public void actualizarTabla(){
-        for(int i = 0; i < bookingList.size(); i++){
-            bookingList.remove(i);
-        }
+        bookingList.remove(0, bookingList.size());
         List<Booking> lista = greenBall.getUserBookings(member.getNickName());
         for(int i = 0; i < lista.size(); i++){
             Reserva reserva = new Reserva(lista.get(i));
             bookingList.add(reserva);
+            if(member.checkHasCreditInfo()){ reserva.setColored(true);}
+            else{ reserva.setColored(false);}
         }
         tabla.setItems(bookingList);
         tabla.refresh();
@@ -195,33 +246,75 @@ public class MisReservas implements Initializable {
     @FXML
     private void pagar(){
         Reserva reserva = tabla.getSelectionModel().getSelectedItem();
-        if(reserva.getBooking().getPaid()){
+        
+        if(member.checkHasCreditInfo()){
             //Avisar de que ya está pagado
             Alert alert = new Alert(AlertType.INFORMATION);
-            alert.setHeaderText("");
+            alert.setTitle("Pagar");
+            alert.setHeaderText(null);
             alert.setContentText("Ya está pagado");
+            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
             alert.showAndWait();
         }else{
-            if(member.checkHasCreditInfo()){
-                //Cambiar a pagado
-                System.out.println("Tienes tarjeta de credito");
-                reserva.ColoredProperty().setValue(true);
-                reserva.getBooking().setPaid(true);
-                reserva.PagadoProperty().setValue("images/accept_white.png");
-                tabla.refresh();
-            }else{
-                //Avisar de introducir tarjeta en los datos
-                Alert alert = new Alert(AlertType.INFORMATION);
-                alert.setHeaderText("");
-                alert.setContentText("No tienes tarjeta de crédito, indícala");
-                alert.showAndWait();
-            }
+            //Avisar de introducir tarjeta en los datos
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Pagar");
+            alert.setHeaderText(null);
+            
+            //Estilo del background
+            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+            alert.setContentText("No tienes tarjeta de crédito, indícala");
+            
+            //Poner aceptar y ir a mis datos en el mismo nivel que acpetar original
+            ButtonType aceptarButton = new ButtonType("Aceptar", ButtonBar.ButtonData.OK_DONE);
+            ButtonType irAMisDatosButton = new ButtonType("Ir a mis datos", ButtonBar.ButtonData.OTHER);
+            
+            alert.getButtonTypes().setAll(aceptarButton, irAMisDatosButton);
+            
+            //Instancias de los botones para darles métodos y estilos
+            Button aceptar = (Button) alert.getDialogPane().lookupButton(aceptarButton);
+            aceptar.setOnAction(c -> alert.close());
+            
+            
+            Button irAMisDatos = (Button) alert.getDialogPane().lookupButton(irAMisDatosButton);
+            irAMisDatos.setOnAction(c -> {
+                alert.close();
+                goMisDatos();
+            });
+            
+            alert.showAndWait();
         }
+    }
+
+    @FXML
+    private void activeToolBar() {
+        if(userFeatures.isVisible()){
+            userFeatures.setVisible(false);
+            
+        }else{
+            userFeatures.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void goMisDatos() {
+        JavaFXMLApplication.setRoot("CambioDatos");
+        CambioDatos controller = (CambioDatos) JavaFXMLApplication.getController("CambioDatos");
+        controller.cambiarUser(member);
+    }
+
+    @FXML
+    private void goInicio() {
+        JavaFXMLApplication.setRoot("PaginaInicio");
+        PaginaInicioController controller = (PaginaInicioController)JavaFXMLApplication.getController("PaginaInicio");
+        controller.actualizarTabla();
     }
 }
 
 //Clase para mostrar imagen en celda en vez de ruta
-    class ImagenTabCell extends TableCell<Reserva, String>{
+    class ImagenTabCellMisReservas extends TableCell<Reserva, String>{
         private ImageView view = new ImageView();
         private Image imagen;
         
@@ -231,6 +324,8 @@ public class MisReservas implements Initializable {
             if(t == null || bln){
                 setText(null);
                 setGraphic(null);
+                setStyle("-fx-background-color: #a4dc8c;");
+                
             }else{
                 imagen = new Image(t, 15, 15, false, true);
                 view.setImage(imagen);
