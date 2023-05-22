@@ -551,7 +551,7 @@ private boolean verificarCampos() {
         }
     }
     
-    //Mostrar errores en tarjeta 1
+    // Mostrar errores en tarjeta 1
     private void cambiarEstiloTar1() {
         String tar1Text = tar1.getText();
         boolean tar1Valido = (tar1Text.length() == 4 && tar2.getText().length() == 4 && tar3.getText().length() == 4 && tar4.getText().length() == 4) || (tar1Text.length() == 0 && tar2.getText().length() == 0 && tar3.getText().length() == 0 && tar4.getText().length() == 0);
@@ -563,22 +563,20 @@ private boolean verificarCampos() {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
-        
+
         if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
             tarAlertImage1.setVisible(true);
             tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
         }
-        
-        if (tar1Text.isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty()) {
-            if (csv.getText().isEmpty()) {
-                csvAlertImage.setVisible(false);
-                csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
-            }
-        } else {
-            cambiarEstiloCsv();
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
         }
     }
-    
+
     // Mostrar errores en tarjeta 2
     private void cambiarEstiloTar2() {
         String tar2Text = tar2.getText();
@@ -591,19 +589,17 @@ private boolean verificarCampos() {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
-        
+
         if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
             tarAlertImage1.setVisible(true);
             tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
         }
-        
-        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty()) {
-            if (csv.getText().isEmpty()) {
-                csvAlertImage.setVisible(false);
-                csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
-            }
-        } else {
-            cambiarEstiloCsv();
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
         }
     }
 
@@ -619,19 +615,17 @@ private boolean verificarCampos() {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
-        
+
         if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
             tarAlertImage1.setVisible(true);
             tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
         }
-        
-        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty()) {
-            if (csv.getText().isEmpty()) {
-                csvAlertImage.setVisible(false);
-                csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
-            }
-        } else {
-            cambiarEstiloCsv();
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
         }
     }
 
@@ -639,7 +633,7 @@ private boolean verificarCampos() {
     private void cambiarEstiloTar4() {
         String tar4Text = tar4.getText();
         boolean tar4Valido = (tar1.getText().length() == 4 && tar2.getText().length() == 4 && tar3.getText().length() == 4 && tar4Text.length() == 4) || (tar1.getText().length() == 0 && tar2.getText().length() == 0 && tar3.getText().length() == 0 && tar4Text.length() == 0);
-        
+
         if (!tar4Valido) {
             tarAlertImage1.setVisible(true);
             tarAlert1.setStyle("-fx-text-fill: #fc0000;");
@@ -647,36 +641,35 @@ private boolean verificarCampos() {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
-        
+
         if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
             tarAlertImage1.setVisible(true);
             tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
         }
-        
-        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty()) {
-            if (csv.getText().isEmpty()) {
-                csvAlertImage.setVisible(false);
-                csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
-            }
-        } else {
-            cambiarEstiloCsv();
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
         }
     }
+
 
     // Mostrar errores en csv
     private void cambiarEstiloCsv() {
         String csvText = csv.getText();
         boolean csvValido = csvText.length() == 3;
         boolean tarVacias = tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty();
-        
-        if (!csvValido) {
+
+        if (!csvValido || (!tarVacias && csv.getText().isEmpty())) {
             csvAlertImage.setVisible(true);
             csvAlert.setStyle("-fx-text-fill: #fc0000;");
         } else {
             csvAlertImage.setVisible(false);
             csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
         }
-        
+
         if (tarVacias && csvValido) {
             cambiarEstiloTar1();
         } else {
