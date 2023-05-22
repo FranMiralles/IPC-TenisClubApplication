@@ -18,28 +18,6 @@
    <right>
       <VBox style="-fx-background-color: #a4dc8c;" BorderPane.alignment="CENTER" />
    </right>
-   <bottom>
-      <GridPane style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints />
-            <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-         <BorderPane.margin>
-            <Insets />
-         </BorderPane.margin>
-         <padding>
-            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-         </padding>
-      </GridPane>
-   </bottom>
    <top>
       <VBox BorderPane.alignment="CENTER">
          <children>
@@ -107,27 +85,90 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goReservar" text="RESERVAR">
+            <Button fx:id="reservar" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goReservar">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin></Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goMisReservas" text="VER RESERVAS" GridPane.columnIndex="1">
+               </GridPane.margin>
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+                     <children>
+                        <Label fx:id="reservaTitulo" text="RESERVAR">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="reservaFoto" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/ReservarNegro.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="reservaTexto" text="Realiza una reserva de nuestras pistas" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="empresa" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" GridPane.columnIndex="1">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin></Button>
-            <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="ELIMINAR RESERVAS" GridPane.columnIndex="2">
+               </GridPane.margin>
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+                     <children>
+                        <Label fx:id="greenBallTitle" text="GREENBALL">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="greenBallFoto" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/Ilustracion_sin_titulo.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="greenBallText" text="Sobre nosotros" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic></Button>
+            <Button fx:id="misReservas" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#goMisReservas" GridPane.columnIndex="2">
                <cursor>
                   <Cursor fx:constant="HAND" />
                </cursor>
                <GridPane.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </GridPane.margin></Button>
+               </GridPane.margin>
+               <graphic>
+                  <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="25.0">
+                     <children>
+                        <Label fx:id="misReservasTitle" text="MIS RESERVAS">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fx:id="misReservasFoto" fitHeight="100.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/VerReservasNegro.png" />
+                           </image>
+                        </ImageView>
+                        <Label fx:id="misReservasText" text="Accede a tus reservas y adminístralas" wrapText="true">
+                           <font>
+                              <Font size="12.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </VBox>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

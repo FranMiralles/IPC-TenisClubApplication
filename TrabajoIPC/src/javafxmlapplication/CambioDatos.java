@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
- */
 package javafxmlapplication;
 
 import java.io.File;
@@ -17,7 +13,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.FileChooser;
@@ -243,7 +238,6 @@ public class CambioDatos implements Initializable {
                 tar1.setText(newValue.replaceAll("[^\\d]", ""));
             }
         });
-
         
         //Errores en tar1
         tar1.setOnKeyTyped(event -> cambiarEstiloTar1());
@@ -329,6 +323,17 @@ public class CambioDatos implements Initializable {
         }
     }
 
+    private void cancelar() {
+        limpiarCampos();
+        JavaFXMLApplication.setRoot("PaginaPricipal");
+    }
+    
+    @FXML
+    private void eliminar() {
+        limpiarCampos();
+        JavaFXMLApplication.setRoot("PaginaPricipal");
+    }
+    
     @FXML
     private void derImage(){
         i++;
@@ -386,22 +391,11 @@ public class CambioDatos implements Initializable {
         boolean nickValido = !nick.getText().isEmpty();
         boolean pwdValida = pwd.getText().length() >= 6;
         boolean pwd1Valida = pwd1.getText().equals(pwd.getText());
-        /*
-        boolean tarjetaValida = (tar1.getText().length() == 4 &&
+        boolean tarjetaValida = tar1.getText().length() == 4 &&
                                 tar2.getText().length() == 4 &&
                                 tar3.getText().length() == 4 &&
-                                tar4.getText().length() == 4) || (tar1.getText().length() == 0 &&
-                                tar2.getText().length() == 0 &&
-                                tar3.getText().length() == 0 &&
-                                tar4.getText().length() == 0) ;
-        boolean csvValido = csv.getText().length() == 3 || csv.getText().length() == 0;*/
-        
-        boolean tarjetaValida = (tar1.getText().length() == 4 &&
-                                tar2.getText().length() == 4 &&
-                                tar3.getText().length() == 4 &&
-                                tar4.getText().length() == 4) ;
+                                tar4.getText().length() == 4;
         boolean csvValido = csv.getText().length() == 3;
-        
         
         nameAlertImage.setVisible(!nombreValido);
         nameAlert.setStyle(nombreValido ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
@@ -428,7 +422,6 @@ public class CambioDatos implements Initializable {
         if(!mandado && !telValido){tel.requestFocus(); mandado = true;}
         
         if(!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty() || !csv.getText().isEmpty()){
-            
             tarAlertImage1.setVisible(!tarjetaValida);
             tarAlert1.setStyle(tarjetaValida ? "-fx-text-fill: #7c7c7c;" : "-fx-text-fill: #fc0000;");
             if(!mandado && tar1.getText().length() != 4){tar1.requestFocus(); mandado = true;}
@@ -443,7 +436,6 @@ public class CambioDatos implements Initializable {
             return nombreValido && apellidosValidos && telValido && nickValido && pwdValida && pwd1Valida && tarjetaValida && csvValido;
         }
         else{
-            
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
 
@@ -526,10 +518,10 @@ public class CambioDatos implements Initializable {
         }
     }
     
-    //Mostrar errores en tarjeta 1
+    // Mostrar errores en tarjeta 1
     private void cambiarEstiloTar1() {
         String tar1Text = tar1.getText();
-        boolean tar1Valido = tar1Text.length() == 4;
+        boolean tar1Valido = (tar1Text.length() == 4 && tar2.getText().length() == 4 && tar3.getText().length() == 4 && tar4.getText().length() == 4) || (tar1Text.length() == 0 && tar2.getText().length() == 0 && tar3.getText().length() == 0 && tar4.getText().length() == 0);
 
         if (!tar1Valido) {
             tarAlertImage1.setVisible(true);
@@ -538,12 +530,24 @@ public class CambioDatos implements Initializable {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
+
+        if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
+            tarAlertImage1.setVisible(true);
+            tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
+        }
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
+        }
     }
-    
+
     // Mostrar errores en tarjeta 2
     private void cambiarEstiloTar2() {
         String tar2Text = tar2.getText();
-        boolean tar2Valido = tar2Text.length() == 4;
+        boolean tar2Valido = (tar1.getText().length() == 4 && tar2Text.length() == 4 && tar3.getText().length() == 4 && tar4.getText().length() == 4) || (tar1.getText().length() == 0 && tar2Text.length() == 0 && tar3.getText().length() == 0 && tar4.getText().length() == 0);
 
         if (!tar2Valido) {
             tarAlertImage1.setVisible(true);
@@ -552,12 +556,24 @@ public class CambioDatos implements Initializable {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
+
+        if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
+            tarAlertImage1.setVisible(true);
+            tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
+        }
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
+        }
     }
 
     // Mostrar errores en tarjeta 3
     private void cambiarEstiloTar3() {
         String tar3Text = tar3.getText();
-        boolean tar3Valido = tar3Text.length() == 4;
+        boolean tar3Valido = (tar1.getText().length() == 4 && tar2.getText().length() == 4 && tar3Text.length() == 4 && tar4.getText().length() == 4) || (tar1.getText().length() == 0 && tar2.getText().length() == 0 && tar3Text.length() == 0 && tar4.getText().length() == 0);
 
         if (!tar3Valido) {
             tarAlertImage1.setVisible(true);
@@ -566,12 +582,24 @@ public class CambioDatos implements Initializable {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
+
+        if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
+            tarAlertImage1.setVisible(true);
+            tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
+        }
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
+        }
     }
 
     // Mostrar errores en tarjeta 4
     private void cambiarEstiloTar4() {
         String tar4Text = tar4.getText();
-        boolean tar4Valido = tar4Text.length() == 4;
+        boolean tar4Valido = (tar1.getText().length() == 4 && tar2.getText().length() == 4 && tar3.getText().length() == 4 && tar4Text.length() == 4) || (tar1.getText().length() == 0 && tar2.getText().length() == 0 && tar3.getText().length() == 0 && tar4Text.length() == 0);
 
         if (!tar4Valido) {
             tarAlertImage1.setVisible(true);
@@ -580,19 +608,39 @@ public class CambioDatos implements Initializable {
             tarAlertImage1.setVisible(false);
             tarAlert1.setStyle("-fx-text-fill: #7c7c7c;");
         }
+
+        if (!csv.getText().isEmpty() && (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty())) {
+            tarAlertImage1.setVisible(true);
+            tarAlert1.setStyle("-fx-text-fill: #fc0000;"); // No reestablecer el mensaje de error de tarjeta si el campo CSV no está vacío
+        }
+        if (tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty() && csv.getText().isEmpty()) {
+            csvAlertImage.setVisible(false);
+            csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        } else if(csv.getText().isEmpty() && (!tar1.getText().isEmpty() || !tar2.getText().isEmpty() || !tar3.getText().isEmpty() || !tar4.getText().isEmpty())){
+            csvAlertImage.setVisible(true);
+            csvAlert.setStyle("-fx-text-fill: #fc0000;");
+        }
     }
+
 
     // Mostrar errores en csv
     private void cambiarEstiloCsv() {
         String csvText = csv.getText();
         boolean csvValido = csvText.length() == 3;
+        boolean tarVacias = tar1.getText().isEmpty() && tar2.getText().isEmpty() && tar3.getText().isEmpty() && tar4.getText().isEmpty();
 
-        if (!csvValido) {
+        if (!csvValido || (!tarVacias && csv.getText().isEmpty())) {
             csvAlertImage.setVisible(true);
             csvAlert.setStyle("-fx-text-fill: #fc0000;");
         } else {
             csvAlertImage.setVisible(false);
             csvAlert.setStyle("-fx-text-fill: #7c7c7c;");
+        }
+
+        if (tarVacias && csvValido) {
+            cambiarEstiloTar1();
+        } else {
+            cambiarEstiloTar1();
         }
     }
 

@@ -6,7 +6,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
@@ -29,9 +31,32 @@ public class PaginaPrincipal implements Initializable {
     private Label cerrarSesion;
     @FXML
     private VBox bordeFoto;
+    @FXML
+    private Label reservaTitulo;
+    @FXML
+    private ImageView reservaFoto;
+    @FXML
+    private Label reservaTexto;
+    @FXML
+    private Label greenBallTitle;
+    @FXML
+    private ImageView greenBallFoto;
+    @FXML
+    private Label greenBallText;
+    @FXML
+    private Label misReservasTitle;
+    @FXML
+    private ImageView misReservasFoto;
+    @FXML
+    private Label misReservasText;
+    @FXML
+    private Button reservar;
+    @FXML
+    private Button empresa;
+    @FXML
+    private Button misReservas;
     
     private Member member;
-    
     
     
     @Override
@@ -56,6 +81,48 @@ public class PaginaPrincipal implements Initializable {
         
         perfil.setOnMouseExited(event -> {
             bordeFoto.setStyle("-fx-background-color: gray");
+        });
+        
+        //Cambio de colores de los botones
+        Image reservaNegro = new Image("images/ReservarNegro.png");
+        Image reservaBlanco = new Image("images/ReservarBlanco.png");
+        Image verReservasNegro = new Image("images/VerReservasNegro.png");
+        Image verReservasBlanco = new Image("images/VerReservasBlanco.png");
+        
+        reservar.setOnMouseEntered(c ->{
+            reservaTitulo.setStyle("-fx-text-fill: #ffffff;");
+            reservaFoto.setImage(reservaBlanco);
+            reservaTexto.setStyle("-fx-text-fill: #ffffff;");
+        });
+        
+        reservar.setOnMouseExited(c ->{
+            reservaTitulo.setStyle("-fx-text-fill: #000000;");
+            reservaFoto.setImage(reservaNegro);
+            reservaTexto.setStyle("-fx-text-fill: #000000;");
+        });
+        
+        misReservas.setOnMouseEntered(c ->{
+            misReservasTitle.setStyle("-fx-text-fill: #ffffff;");
+            misReservasFoto.setImage(verReservasBlanco);
+            misReservasText.setStyle("-fx-text-fill: #ffffff;");
+        });
+        
+        misReservas.setOnMouseExited(c ->{
+            misReservasTitle.setStyle("-fx-text-fill: #000000;");
+            misReservasFoto.setImage(verReservasNegro);
+            misReservasText.setStyle("-fx-text-fill: #000000;");
+        });
+        
+        empresa.setOnMouseEntered(c ->{
+            greenBallTitle.setStyle("-fx-text-fill: #ffffff;");
+            //misReservasFoto.setImage(verReservasBlanco);
+            greenBallText.setStyle("-fx-text-fill: #ffffff;");
+        });
+        
+        empresa.setOnMouseExited(c ->{
+            greenBallTitle.setStyle("-fx-text-fill: #000000;");
+            //misReservasFoto.setImage(verReservasNegro);
+            greenBallText.setStyle("-fx-text-fill: #000000;");
         });
     }
     

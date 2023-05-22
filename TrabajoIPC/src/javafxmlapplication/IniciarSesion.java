@@ -74,7 +74,6 @@ public class IniciarSesion implements Initializable {
         });
         
         registrarse.setOnMouseEntered(event -> {
-            
             registrarse.setStyle("-fx-text-fill: #24740c");
         });
 
