@@ -1,0 +1,294 @@
+package javafxmlapplication;
+
+import java.lang.reflect.Array;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TouchEvent;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import model.*;
+/**
+ * FXML Controller class
+ *
+ * @author raulh
+ */
+public class ReservarPistas implements Initializable {
+
+    @FXML
+    private Pane Pista_1;
+    @FXML
+    private Pane Pista_3;
+    @FXML
+    private Pane Pista_4;
+    @FXML
+    private Pane Pista_5;
+    @FXML
+    private Pane Pista_6;
+    @FXML
+    private Pane Pista_2;
+    @FXML
+    private BorderPane idReservarPista;
+    Court pista;
+    
+    
+    Club greenBall;
+    Member member;
+    
+     List<Court> pistas = new ArrayList<Court>();
+    
+Boolean paid;
+
+     
+    
+    /**
+     * Initializes the controller class.
+     */
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        
+        
+        
+        
+        try{
+            greenBall = Club.getInstance();
+            
+        }catch(Exception e){
+            System.err.println(e.toString());
+        }
+      
+    }    
+    
+    @FXML
+    private void cambio_1(MouseEvent event) {
+        
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(0);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("Una pista de tenis profesional, con superficie de arcilla roja,"
+                + " lineas bien definidas y un bote lento y controlado.Perfecto para un juego estratégico y en equipo.");
+        controller.cambioTarjeta(paid);
+        
+                
+        
+                
+    }
+
+    @FXML
+    private void cambio_2(MouseEvent event) {
+        
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(1);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("una pista de tenis de alta gama, con superficie dura de última "
+                + " generación y una respuesta de bote rápida y uniforme, ideal para un juegue agresivo y explosivo.");
+        controller.cambioTarjeta(paid);
+    }
+
+    
+    @FXML
+    private void cambio_3(MouseEvent event) {
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(2);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("Una pista de tenis indoor, con superficie de moqueta suave "
+                + "y elástica que brinda una excelente absorción de impactos, permitiendo un juego ágil y de alta precisión");
+        controller.cambioTarjeta(paid);
+    }
+
+    @FXML
+    private void cambio_4(MouseEvent event) {
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(3);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("Una pista de tenis de tierra batida, con polvo rojo suelto "
+                + " que proporciona un bote medio y lento, promoviendo puntos largos y deslizamientos espectaculares.");
+        controller.cambioTarjeta(paid);
+    }
+
+    @FXML
+    private void cambio_5(MouseEvent event) {
+       JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(4);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("Una pista de tenis sintética de alta calidad  diseñada para brindar un bote consistente y rápido. Su resistencia al desgaste y su tracción óptima  "
+                + "ofrecen un juego dinámico y versátil para jugadores de todos los niveles.");
+        controller.cambioTarjeta(paid);
+    }
+
+    @FXML
+    private void cambio_6(MouseEvent event) {
+        JavaFXMLApplication.setRoot("ReservarPistaEspecifica");
+        ReservarPistaEspecifica  controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+        
+        controller.cambioMember(member);
+         pistas =greenBall.getCourts();
+        for(int i = 0; i < pistas.size() ; i++){
+            System.out.println(pistas.get(i).getName());
+        }
+        
+        pista =pistas.get(5);
+        controller.CambioTitulo(pista.getName());
+        controller.AsignarPista(pista);
+        controller.cambioTexto("Una pista de tenis de hierba natural, con césped corto y firme que ofrece un bote bajo y rápido,   "
+                + " desafiando la agilidad y el juego de volea de los jugadores.");
+        controller.cambioTarjeta(paid);
+    }
+
+    @FXML
+    private void normal_1(MouseEvent event) {
+        
+        Pista_1.getStyleClass().remove("grid-cell");
+        Pista_1.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_1(MouseEvent event) {
+        
+        Pista_1.getStyleClass().add("grid-cell");
+        Pista_1.getStyleClass().add("hover");
+    }
+
+    @FXML
+    private void normal_3(MouseEvent event) {
+         Pista_3.getStyleClass().remove("grid-cell");
+        Pista_3.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_3(MouseEvent event) {
+       Pista_3.getStyleClass().add("grid-cell");
+        Pista_3.getStyleClass().add("hover");
+    }
+
+    @FXML
+    private void normal_4(MouseEvent event) {
+         Pista_4.getStyleClass().remove("grid-cell");
+        Pista_4.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_4(MouseEvent event) {
+        Pista_4.getStyleClass().add("grid-cell");
+        Pista_4.getStyleClass().add("hover");
+    }
+
+    @FXML
+    private void normal_5(MouseEvent event) {
+        Pista_5.getStyleClass().remove("grid-cell");
+        Pista_5.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_5(MouseEvent event) {
+       Pista_5.getStyleClass().add("grid-cell");
+        Pista_5.getStyleClass().add("hover");
+    }
+
+    @FXML
+    private void normal_6(MouseEvent event) {
+         Pista_6.getStyleClass().remove("grid-cell");
+        Pista_6.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_6(MouseEvent event) {
+        Pista_6.getStyleClass().add("grid-cell");
+        Pista_6.getStyleClass().add("hover");
+    }
+
+    @FXML
+    private void normal_2(MouseEvent event) {
+        Pista_2.getStyleClass().remove("grid-cell");
+        Pista_2.getStyleClass().remove("hover");
+    }
+
+    @FXML
+    private void movimiento_2(MouseEvent event) {
+      Pista_2.getStyleClass().add("grid-cell");
+      Pista_2.getStyleClass().add("hover");
+    }
+
+    
+    public void cambioMember(Member m){
+        member = m;
+    }
+    
+     public void cambioTarjeta(String p){
+        
+       if( p.equals("")){
+           paid = false; //no hay tarjeta
+       }
+       else{
+           paid = true;  // si hay tarjeta
+       } 
+       
+       
+       
+       
+    }
+
+    @FXML
+    private void Volver_buton(ActionEvent event) {
+         JavaFXMLApplication.setRoot("PaginaPrincipal");
+        PaginaPrincipal controller = (PaginaPrincipal) JavaFXMLApplication.getController("PaginaPrincipal");
+        
+        
+        
+    }
+
+    
+    
+    
+}
