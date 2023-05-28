@@ -335,8 +335,14 @@ public class CambioDatos implements Initializable {
             
             if(destino.equals("ReservarPistaEspecifica")){
                 ReservarPistaEspecifica controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
-                if(member.checkHasCreditInfo()){ controller.paid = true;}
-                else{ controller.paid = false;}
+                controller.paid = member.checkHasCreditInfo();
+                controller.cambioMember(member);
+            }
+            
+            if(destino.equals("ReservarPistas")){
+                ReservarPistas controller = (ReservarPistas) JavaFXMLApplication.getController("ReservarPistas");
+                controller.paid = member.checkHasCreditInfo();
+                controller.cambioMember(member);
             }
             
             JavaFXMLApplication.setRoot(destino);

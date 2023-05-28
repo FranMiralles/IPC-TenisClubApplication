@@ -9,17 +9,18 @@
 <?import javafx.scene.effect.ColorAdjust?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="872.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/Pista_Especifica.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
+<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="872.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondoInicio.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
    <effect>
       <ColorAdjust />
    </effect>
@@ -39,158 +40,6 @@
                </graphic></Button>
          </children></Pane>
    </bottom>
-   <center>
-      <VBox alignment="CENTER" prefHeight="473.0" prefWidth="872.0" styleClass="char" BorderPane.alignment="CENTER">
-         <children>
-            <HBox alignment="CENTER" prefWidth="872.0" style="-fx-background-color: #24740c;">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </HBox>
-            <VBox alignment="CENTER" prefHeight="307.0" prefWidth="872.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="301.0" prefWidth="687.0" styleClass="paneles" stylesheets="@../styles/Pista_Especifica.css" VBox.vgrow="ALWAYS">
-                     <children>
-                        <HBox alignment="CENTER" layoutX="-51.0" layoutY="-22.0" prefHeight="391.0" prefWidth="788.0" spacing="12.0" style="-fx-background-color: #a4dc8c;" styleClass="panel" AnchorPane.bottomAnchor="-109.0" AnchorPane.leftAnchor="-51.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="-22.0">
-                           <children>
-                              <VBox alignment="CENTER" prefHeight="317.0" prefWidth="272.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
-                                 <children>
-                                    <ImageView fx:id="panelFoto" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
-                                       <VBox.margin>
-                                          <Insets bottom="-44.0" />
-                                       </VBox.margin></ImageView>
-                                    <Label fx:id="TextoDePista" alignment="TOP_LEFT" prefHeight="114.0" prefWidth="256.0" style="-fx-font-family: &quot;Arial&quot;;" styleClass="text-field" text="Descripcion de la pista" textOverrun="CLIP" wrapText="true">
-                                       <VBox.margin>
-                                          <Insets left="8.0" right="8.0" top="56.0" />
-                                       </VBox.margin>
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets bottom="27.0" left="10.0" right="-9.0" top="38.0" />
-                                 </HBox.margin>
-                              </VBox>
-                              <VBox prefHeight="392.0" prefWidth="386.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
-                                 <children>
-                                    <HBox alignment="CENTER">
-                                       <VBox.margin>
-                                          <Insets top="-10.0" />
-                                       </VBox.margin>
-                                       <children>
-                                          <Label fx:id="titulo" styleClass="titulo" stylesheets="@../styles/Pista_Especifica.css" text="Titulo" textAlignment="CENTER">
-                                             <HBox.margin>
-                                                <Insets top="30.0" />
-                                             </HBox.margin>
-                                          </Label>
-                                       </children>
-                                    </HBox>
-                                    <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="386.0">
-                                       <columnConstraints>
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.20001220703125" minWidth="10.0" prefWidth="70.4000244140625" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.399951171875" minWidth="10.0" prefWidth="164.00002441406252" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.59999084472656" minWidth="10.0" prefWidth="155.99997558593748" />
-                                       </columnConstraints>
-                                       <rowConstraints>
-                                          <RowConstraints maxHeight="125.6" minHeight="83.39998779296874" prefHeight="120.79998168945312" vgrow="SOMETIMES" />
-                                          <RowConstraints maxHeight="77.79999389648437" minHeight="34.79999999999998" prefHeight="39.60001831054686" vgrow="SOMETIMES" />
-                                       </rowConstraints>
-                                       <children>
-                                          <Label alignment="CENTER" prefHeight="18.0" prefWidth="77.0" styleClass="texto_letra" stylesheets="@../styles/Pista_Especifica.css" text="Horario:" textFill="WHITE" GridPane.rowIndex="1">
-                                             <GridPane.margin>
-                                                <Insets bottom="14.0" left="2.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="Arial" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <Label alignment="CENTER" prefHeight="18.0" prefWidth="74.0" text="Fecha:" textFill="WHITE">
-                                             <GridPane.margin>
-                                                <Insets left="2.0" />
-                                             </GridPane.margin>
-                                             <font>
-                                                <Font name="Arial" size="14.0" />
-                                             </font>
-                                          </Label>
-                                          <DatePicker fx:id="calendario" prefHeight="27.0" prefWidth="150.0" GridPane.columnIndex="1">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </DatePicker>
-                                          <ComboBox fx:id="hora_Inicio" prefHeight="30.0" prefWidth="151.0" promptText="Hora de Inicio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
-                                             <GridPane.margin>
-                                                <Insets left="6.0" right="11.0" top="5.0" />
-                                             </GridPane.margin>
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                          </ComboBox>
-                                          <ComboBox fx:id="hora_Fin" prefHeight="30.0" prefWidth="151.0" promptText="Hora de Fin" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
-                                             <cursor>
-                                                <Cursor fx:constant="HAND" />
-                                             </cursor>
-                                             <GridPane.margin>
-                                                <Insets right="7.0" top="5.0" />
-                                             </GridPane.margin>
-                                          </ComboBox>
-                                       </children>
-                                       <VBox.margin>
-                                          <Insets bottom="24.0" />
-                                       </VBox.margin>
-                                    </GridPane>
-                                    <ImageView fx:id="AlertImage" fitHeight="27.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
-                                       <image>
-                                          <Image url="@../images/ExclamationIcon.png" />
-                                       </image>
-                                       <VBox.margin>
-                                          <Insets bottom="10.0" left="3.0" />
-                                       </VBox.margin>
-                                    </ImageView>
-                                    <Button fx:id="aceptarButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#aceptar" stylesheets="@../styles/Pista_Especifica.css" text="Aceptar">
-                                       <VBox.margin>
-                                          <Insets bottom="-35.0" left="307.0" />
-                                       </VBox.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Button fx:id="borrarButon" contentDisplay="TOP" mnemonicParsing="false" onAction="#borrar_Datos" stylesheets="@../styles/Pista_Especifica.css" text="Borrar">
-                                       <VBox.margin>
-                                          <Insets bottom="22.0" left="225.0" />
-                                       </VBox.margin>
-                                       <cursor>
-                                          <Cursor fx:constant="HAND" />
-                                       </cursor>
-                                    </Button>
-                                    <Label fx:id="AlertText" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="201.0" text="No quedan horarios disponibles" textFill="RED" wrapText="true">
-                                       <VBox.margin>
-                                          <Insets left="24.0" top="-87.0" />
-                                       </VBox.margin>
-                                    </Label>
-                                 </children>
-                                 <HBox.margin>
-                                    <Insets bottom="28.0" left="15.0" right="10.0" top="38.0" />
-                                 </HBox.margin>
-                              </VBox>
-                           </children>
-                           <opaqueInsets>
-                              <Insets />
-                           </opaqueInsets>
-                        </HBox>
-                     </children>
-                     <VBox.margin>
-                        <Insets bottom="20.0" top="3.0" />
-                     </VBox.margin>
-                  </AnchorPane>
-               </children>
-               <VBox.margin>
-                  <Insets bottom="134.0" />
-               </VBox.margin>
-            </VBox>
-         </children>
-      </VBox>
-   </center>
    <top>
       <VBox styleClass="char" BorderPane.alignment="CENTER">
          <children>
@@ -249,4 +98,143 @@
          </children>
       </VBox>
    </top>
+   <center>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" styleClass="char" BorderPane.alignment="CENTER">
+         <children>
+            <StackPane>
+               <children>
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="470.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="830.0" />
+                  <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="500.0" spacing="12.0">
+                     <children>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
+                           <children>
+                              <ImageView fx:id="panelFoto" fitHeight="180.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                                 <VBox.margin>
+                                    <Insets bottom="-44.0" />
+                                 </VBox.margin>
+                              </ImageView>
+                              <Label fx:id="TextoDePista" alignment="TOP_LEFT" prefWidth="420.0" style="-fx-font-family: &quot;Arial&quot;;" styleClass="text-field" text="Descripcion de la pista" textOverrun="CLIP" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="8.0" right="8.0" top="56.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="38.0" left="10.0" right="-9.0" top="38.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="386.0" spacing="20.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
+                           <children>
+                              <HBox alignment="CENTER">
+                                 <VBox.margin>
+                                    <Insets top="-10.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <Label fx:id="titulo" styleClass="titulo" stylesheets="@../styles/Pista_Especifica.css" text="Titulo" textAlignment="CENTER">
+                                       <HBox.margin>
+                                          <Insets top="30.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="386.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.20001220703125" minWidth="10.0" prefWidth="72.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.399951171875" minWidth="10.0" prefWidth="147.5" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.59999084472656" minWidth="10.0" prefWidth="147.5" />
+                                 </columnConstraints>
+                                 <rowConstraints>
+                                    <RowConstraints maxHeight="125.6" minHeight="83.39998779296874" prefHeight="101.0" vgrow="SOMETIMES" />
+                                    <RowConstraints maxHeight="77.79999389648437" minHeight="34.79999999999998" prefHeight="67.0" vgrow="SOMETIMES" />
+                                 </rowConstraints>
+                                 <children>
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="77.0" styleClass="texto_letra" stylesheets="@../styles/Pista_Especifica.css" text="Horario:" textFill="WHITE" GridPane.rowIndex="1">
+                                       <GridPane.margin>
+                                          <Insets bottom="14.0" left="2.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="CENTER" prefHeight="18.0" prefWidth="74.0" text="Fecha:" textFill="WHITE">
+                                       <GridPane.margin>
+                                          <Insets left="2.0" />
+                                       </GridPane.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                    <DatePicker fx:id="calendario" prefHeight="27.0" prefWidth="150.0" GridPane.columnIndex="1">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </DatePicker>
+                                    <ComboBox fx:id="hora_Inicio" prefHeight="40.0" prefWidth="197.0" promptText="INICIO" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                       <GridPane.margin>
+                                          <Insets left="6.0" right="11.0" top="5.0" />
+                                       </GridPane.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </ComboBox>
+                                    <ComboBox fx:id="hora_Fin" prefHeight="30.0" prefWidth="151.0" promptText="FIN" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                       <GridPane.margin>
+                                          <Insets right="7.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </ComboBox>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="24.0" />
+                                 </VBox.margin>
+                              </GridPane>
+                              <HBox alignment="TOP_CENTER" spacing="8.0" stylesheets="@../styles/EstilosFondo.css">
+                                 <children>
+                                    <ImageView fx:id="AlertImage" fitHeight="27.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/ExclamationIcon.png" />
+                                       </image>
+                                    </ImageView>
+                                    <Label fx:id="AlertText" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="180.0" text="No quedan horarios disponibles" textFill="RED" wrapText="true" />
+                                    <Button fx:id="aceptarButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#aceptar" text="Aceptar">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                    <Button fx:id="borrarButon" contentDisplay="TOP" mnemonicParsing="false" onAction="#borrar_Datos" text="Borrar">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <HBox.margin>
+                              <Insets bottom="38.0" left="15.0" right="10.0" top="38.0" />
+                           </HBox.margin>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                  </HBox>
+               </children>
+               <HBox.margin>
+                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+               </HBox.margin>
+            </StackPane>
+         </children>
+      </HBox>
+   </center>
 </BorderPane>

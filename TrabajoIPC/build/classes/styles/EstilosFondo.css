@@ -40,3 +40,7 @@
 .text-field:focused {
     -fx-border-color: #74a464;
 }
+
+.unstyled {
+    
+}

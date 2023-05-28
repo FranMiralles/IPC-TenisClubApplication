@@ -40,7 +40,7 @@ public class JavaFXMLApplication extends Application {
                 stage.setMinHeight(528);
                 break;
             case  "PaginaInicio":
-                stage.setMinWidth(850);
+                stage.setMinWidth(870);
                 stage.setMinHeight(750);
                 break;
             case "ReservarPistaEspecifica":
@@ -49,11 +49,11 @@ public class JavaFXMLApplication extends Application {
                 break;
             case "RegistroUsuario":
                 stage.setMinWidth(922);
-                stage.setMinHeight(850);
+                stage.setMinHeight(830);
                 break;
             case "CambioDatos":
                 stage.setMinWidth(922);
-                stage.setMinHeight(850);
+                stage.setMinHeight(830);
                 break;
             case "IniciarSesion":
                 stage.setMinWidth(700);
@@ -126,7 +126,7 @@ public class JavaFXMLApplication extends Application {
         
         scene = new Scene(roots.get("PaginaInicio"));
         
-        stage.setMinWidth(850);
+        stage.setMinWidth(870);
         stage.setMinHeight(750);
         
         stage.setScene(scene);

@@ -605,6 +605,10 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
          encontrado = true;
      }
      
+     if(HorariosUsuario.contains(horaInSel.minusHours(1)) && HorariosUsuario.contains(horaInSel.plusHours(1))){
+         encontrado = true;
+     }
+     
      return encontrado;
     }
     
