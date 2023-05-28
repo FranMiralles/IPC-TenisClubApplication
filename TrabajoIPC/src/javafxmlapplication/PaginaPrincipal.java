@@ -2,9 +2,12 @@ package javafxmlapplication;
 
 
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -56,7 +59,7 @@ public class PaginaPrincipal implements Initializable {
     private Button misReservas;
     
     private Member member;
-    
+    private Club greenBall;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -125,6 +128,8 @@ public class PaginaPrincipal implements Initializable {
             greenBallFoto.setImage(greenBallNegro);
             greenBallText.setStyle("-fx-text-fill: #000000;");
         });
+            
+        empresa.setOnMouseClicked(c -> { empresa();});
     }
     
     @FXML
@@ -180,5 +185,23 @@ public class PaginaPrincipal implements Initializable {
         controller.setDestino("PaginaPrincipal");
         JavaFXMLApplication.setRoot("CambioDatos");
         controller.setFocus();
+    }
+    
+    private void empresa(){
+        Alert alert = new Alert(AlertType.INFORMATION);
+        alert.setTitle("Sobre nosotros");
+        alert.setHeaderText(null);
+        alert.setContentText("Green Ball es el lugar perfecto para los amantes del tenis. Con 6 pistas emocionantes, incluyendo hierba, cemento, tierra batida, pádel, resina y una para los más pequeños, ofrecemos diversión para todos. Únete a nuestra comunidad y disfruta de la pasión por el tenis en un ambiente acogedor");
+        
+        ImageView imageView = new ImageView(new Image("images/BallLogo.png"));
+        imageView.setFitHeight(50);
+        imageView.setFitWidth(50);
+        
+        alert.getDialogPane().setGraphic(imageView);
+        alert.setHeight(300);
+        alert.setWidth(250);
+        alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+        alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+        alert.showAndWait();
     }
 }

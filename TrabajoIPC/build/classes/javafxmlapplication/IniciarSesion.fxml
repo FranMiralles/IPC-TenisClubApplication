@@ -17,7 +17,7 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" nodeOrientation="LEFT_TO_RIGHT" prefHeight="550.0" prefWidth="700.0" style="-fx-background-color: #7bcb53;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.IniciarSesion">
    <top>
-      <HBox alignment="CENTER" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="80.0" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <children>
             <Label styleClass="titulo" text="INICIAR SESIÓN" />
          </children>
@@ -26,7 +26,14 @@
    <bottom>
       <HBox style="-fx-background-color: #24740c;" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#volver" text="Volver" />
+            <Button mnemonicParsing="false" onAction="#volver">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children></HBox>
    </bottom>
    <center>

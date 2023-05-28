@@ -15,14 +15,16 @@
     -fx-padding: 8px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
+    -fx-border-color: black;
 }
 
 .button:hover {
     -fx-background-color: #24740c;
+    -fx-border-color: white;
 }
 
 .button:focused {
-    -fx-background-color: #24740c;
+    -fx-border-color: white;
 }
 
 .text-field {

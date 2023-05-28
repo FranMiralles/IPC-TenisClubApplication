@@ -68,7 +68,14 @@
    <bottom>
       <HBox BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#volver" text="Volver" />
+            <Button mnemonicParsing="false" onAction="#volver">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="10.0" left="15.0" right="10.0" top="10.0" />

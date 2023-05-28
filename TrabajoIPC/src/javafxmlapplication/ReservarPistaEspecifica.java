@@ -28,13 +28,13 @@ import javafx.scene.text.Text;
 import javafx.util.Duration;
 import model.*;
 import javafx.scene.control.ListCell;
+import javafx.scene.image.Image;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
 
-/**
- * FXML Controller class
- *
- * @author raulh
- */
 public class ReservarPistaEspecifica extends DateCell  implements Initializable {
 
     @FXML
@@ -57,6 +57,8 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     private Button borrarButon;
     @FXML
     private Label TextoDePista;
+     @FXML
+    private ImageView panelFoto;
     
     Club greenBall ;
     Court pista ;
@@ -74,7 +76,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     long minuteRes;             //minutos seleccionador de reserva 1h o 2h
     LocalTime diezpm= null; //10pm excepcion 
     
-    
+    LocalTime horaReservadaAux = null;
    
     LocalDateTime horaReserva = null; //hora y fecha actual completa
     
@@ -85,9 +87,22 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
    public List<Booking> reservasUsuario = new ArrayList<Booking>();
    public List<LocalTime> HorariosUsuario= new ArrayList<LocalTime>();
    
-    Booking auxBooking = null;
+    Booking auxBooking = null; //reserva auxiliar
     
-   Boolean permitido;
+   Boolean permitido; 
+    @FXML
+    private VBox bordeFoto;
+    @FXML
+    private ImageView perfil;
+    @FXML
+    private Label user;
+    @FXML
+    private Label name;
+    @FXML
+    private HBox userFeatures;
+    @FXML
+    private Label cerrarSesion;
+   
     
     /**
      * Initializes the controller class.
@@ -101,7 +116,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
             System.err.println(e.toString());
             
         }
-       //Hora de kas 22pm para caso excepcion
+       //Hora de las 22pm para caso excepcion
          diezpm = LocalTime.of(21, 00);
          
         
@@ -139,57 +154,51 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
         
         //listener para detectar cambios en la seleccion dia
             calendario.setOnAction(event ->{
+                HorariosReservas.clear();
                 diaSel = calendario.getValue();
                 horaActual  = LocalTime.now();
                 diaActual   = LocalDate.now();
                 hora_Inicio.getItems().clear();
-                System.out.println(paid);
-            if(diaSel != null){
-             ReservasHechas = greenBall.getCourtBookings(pista.getName(), diaSel);//Obitiene reservas hechas para ese dia
-            System.out.println("nº reservas" + ReservasHechas.size());
-           if(ReservasHechas.size() ==13 ){
-             maximoReservas();
-               
-               
-            }else{
-               //Desactivar Alertas
-                AlertImage.setVisible(false);
-                AlertText.setVisible(false);
-           }
+                
+                if(diaSel != null){
+                    ReservasHechas = greenBall.getCourtBookings(pista.getName(), diaSel);//Obitiene reservas hechas para ese dia
+          
+                if(ReservasHechas.size() ==13 ){
+                    maximoReservas();
+                 
+                }else{
+                    //Desactivar Alertas
+                    AlertImage.setVisible(false);
+                    AlertText.setVisible(false);
+                }
             
-            }
+                }
             
             //Bucle para obtener las fechas de las que ya hay reservas hechos
             
-            if(!ReservasHechas.isEmpty() ){
-                for(int i = 0; i < ReservasHechas.size(); i++){
-                    HorariosReservas.add(ReservasHechas.get(i).getFromTime());
+                if(!ReservasHechas.isEmpty() ){
+                    for(int i = 0; i < ReservasHechas.size(); i++){
+                        HorariosReservas.add(ReservasHechas.get(i).getFromTime());
                     
+                    }
                 }
-                System.out.println("horas reservadas :" + HorariosReservas.size());
-            }
            
             
-             //bucles para añadir los hoarios de inicio 
-           
-             
-             for(int i=9; i <22; i++){  
+                //bucles para añadir los hoarios de inicio 
+                for(int i=9; i <22; i++){  
         
-                         hora_Inicio.getItems().add(LocalTime.of(i, 00));
+                     hora_Inicio.getItems().add(LocalTime.of(i, 00));
                 }
                     
-                       //en caso de que haya reservas elimina los elementos en los que hay reservas
+                //en caso de que haya reservas elimina los elementos en los que hay reservas
             
-            if(!HorariosReservas.isEmpty()){
-              //  hora_Inicio.getItems().clear();
-                
+                if(!HorariosReservas.isEmpty()){
+                //  hora_Inicio.getItems().clear();
                 for(int i = 0; i<HorariosReservas.size(); i++){
                      aux = HorariosReservas.get(i);
                      
                     hora_Inicio.getItems().remove(aux);
-                }
-               
-                
+                }   
             }
             
            
@@ -200,16 +209,16 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
             
            
            }
-           
-           
-            
-        }); //AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAa
+         
+        }); 
       
         
         //listener para detectar cambios en la seleccion hora final
         hora_Inicio.setOnAction(event ->{
        
             horaInSel = hora_Inicio.getValue();
+            
+            
             
             hora_Fin.getItems().clear();
              //Bucle para obtener los horarios del final
@@ -256,31 +265,53 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
         hora_Inicio.setVisibleRowCount(5);
         hora_Fin.setVisibleRowCount(5);
             
-       }
+        
+        userFeatures.setVisible(false);
+        
+        user.setOnMouseEntered(event -> {
+            user.setUnderline(true);
+            user.setStyle("-fx-text-fill: lightblue");
+            //user.setStyle("-fx-font-weight: bold");
+        });
+
+        user.setOnMouseExited(event -> {
+            user.setUnderline(false);
+            user.setStyle("-fx-text-fill: white");
+            //user.setStyle("<font-weight>: regular");
+        });
+        
+        perfil.setOnMouseEntered(event -> {
+           bordeFoto.setStyle("-fx-background-color: lightblue");
+        });
+        
+        perfil.setOnMouseExited(event -> {
+            bordeFoto.setStyle("-fx-background-color: gray");
+        });
+    }
 
     
     
     @FXML
     private void aceptar(ActionEvent event) {
-          if(horaReserva != null && diaSel !=null && horaInSel !=null && pista !=null && member !=null && paid!=null){
+          
+            if(horaReserva != null && diaSel !=null && horaInSel !=null && pista !=null && member !=null && paid!=null){
               minuteRes = horaInSel.until(horaFinSel, java.time.temporal.ChronoUnit.MINUTES);  //saber si es 1h o 2h
-
-              //greenBall.registerBooking(horaReserva, diaSel, horaInSel, true, pista, member);
-              System.out.println("minutos reservados" +minuteRes);
-              
-             permitido = comprovarReservas();
-              
+            }
+            
+             //comprobar si se pudede reservar o no porque hay horas anteriores o posteriores
+            if(minuteRes == 60){  //se quiere reservar 1H
+                permitido = permitido60();
+            }
+            else{ //se quieren reservar 2 horas
+                permitido = permitido120();
+            }  
              
+            
             if(permitido == true){ //Ya hay reservados más de 2 horas seguidas
                 AlertImage.setVisible(true);
                 AlertText.setVisible(true);
                 AlertText.setText("No se puede reservar más de 2 horas seguidas");
-                hora_Inicio.disableProperty();
-                hora_Fin.disableProperty();
-                calendario.setValue(null);
-                borrarButon.disableProperty();
-                aceptarButton.disableProperty();
-                calendario.requestFocus();
+                iniciar();
                 
             } 
             else if(minuteRes == 60){ //Solo se ha seleccionado una hora
@@ -289,9 +320,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
               calendario.requestFocus();
               
               hora_Fin.disableProperty(); 
-              //horaInSel = null;
-              //horaFinSel = null;
-                 // System.out.println("60");
+              
                  
                   alerta();
              iniciar();// inicia todos las cosas poniendolas a null 
@@ -299,20 +328,18 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
              
               }
             else if(minuteRes == 120){ //2 horas seleccionadas
-                 // System.out.println("hora inicio 1 :" +horaInSel.toString());
+                 
                   
                   
                   horaFinSel = horaFinSel.minusHours(1);
-                  System.out.println("hoara inicio 1 :" +horaInSel.toString());
-                  System.out.println("hoara fin 1 : " +horaFinSel.toString());
+                 
                   reservar();
                   
                  horaInSel = horaInSel.plusHours(1);
                  
                  horaFinSel =horaInSel.plusHours(1);
                  
-                  System.out.println("hoara inicio 2 :" +horaInSel.toString());
-                  System.out.println("hoara fin 2 : " +horaFinSel.toString());
+                  
                  
                 if(diaActual != null&& horaActual != null){         
                     horaReserva =diaActual.atTime(horaActual);
@@ -323,8 +350,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
                 //calendario.setValue(null);
                 calendario.requestFocus();
                 hora_Fin.disableProperty(); 
-                //horaInSel = null;
-                // horaFinSel = null;
+                
                  alerta();
              iniciar();// inicia todos las cosas poniendolas a null 
              JavaFXMLApplication.setRoot("PaginaPrincipal");
@@ -332,7 +358,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
              }
              
             
-          }
+          
           
        HorariosReservas.clear();
         }
@@ -341,21 +367,12 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     public void reservar(){
         
         try {
-            //auxBooking =ooking(horaReserva, diaSel,horaInSel)
-            //System.out.println("Hora Completo :" + horaReserva.toString());
-            //System.out.println("Dia sel :" + diaSel.toString());
-            //System.out.println("hora de Inicio :" + horaInSel.toString());
-            //System.out.println("hora de Fin :" +horaFinSel.toString());
-            //System.out.println("Pista :" + pista.toString());
-            //System.out.println("miembto :" + member.getName());
+             
+             auxBooking =greenBall.registerBooking(horaReserva, diaSel, horaInSel, paid, pista, member);
+             auxBooking.setPaid(paid);
+             
+            ReservasHechas = greenBall.getCourtBookings(pista.getName(), diaSel);//Obitiene reservas hechas para ese dia
             
-            //Booking auxBooking  = new Booking(horaReserva, diaSel, horaInSel, true, pista, member);
-             greenBall.registerBooking(horaReserva, diaSel, horaInSel, paid, pista, member);
-             
-             
-             ReservasHechas = greenBall.getCourtBookings(pista.getName(), diaSel);//Obitiene reservas hechas para ese dia
-            System.out.println("nº reservas" + ReservasHechas.size());
-            System.out.println(ReservasHechas.get(0).toString());
              
             } catch (ClubDAOException ex) {
               Logger.getLogger(ReservarPistaEspecifica.class.getName()).log(Level.SEVERE, null, ex);
@@ -390,11 +407,14 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     
     public void cambioMember(Member m){
         member = m;
-        
+        user.setText(member.getNickName());
+        name.setText(member.getName());
+        perfil.setImage(member.getImage());
+        userFeatures.setVisible(false);
     }
 
     @FXML
-    private void borrar_Datos(ActionEvent event) {
+    private void borrar_Datos() {
        
         calendario.requestFocus();
         calendario.setValue(null);
@@ -402,10 +422,9 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
               hora_Fin.setValue(null);
               hora_Fin.disableProperty(); 
               aceptarButton.disableProperty();
-              //horaInSel = null;
-              //horaFinSel = null;
+              
               horaReserva = null;
-              System.out.println(ReservasHechas.size());
+              
             
     }
     
@@ -420,7 +439,7 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
         borrarButon.disableProperty();
         aceptarButton.disableProperty();
         calendario.requestFocus();
-         System.out.println(ReservasHechas.size());
+        
         
         
          
@@ -438,10 +457,13 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
     }
     @FXML
     private void volver_Inicio(ActionEvent event) {
+        AlertImage.setVisible(false);
+        AlertText.setVisible(false);
         JavaFXMLApplication.setRoot("ReservarPistas");
         ReservarPistas controller = (ReservarPistas) JavaFXMLApplication.getController("ReservarPistas");
         controller.cambioMember(member);
         controller.cambioTarjeta(member.getCreditCard());
+        borrar_Datos();
     }
 
     
@@ -450,52 +472,19 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setTitle("Reserva");
         alert.setHeaderText(null);
-        alert.setContentText("Reserva realizada con éxito");
+        
+        if(paid){
+            alert.setContentText("Reserva realizada con éxito.\nHa sido pagada automáticamente.");
+        }
+        else{
+            alert.setContentText("Reserva realizada con éxito.\nPendiente de pago."); 
+        }
         alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
         alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
         alert.showAndWait();
     }
     
-    public boolean comprovarReservas() {
     
-    encontrado = false;
-    reservasUsuario = greenBall.getUserBookings(member.getNickName());
-
-    if (reservasUsuario.isEmpty()) {
-        return false;
-    }
-
-    //HorariosUsuario.clear();
-
-    
-    for (int i = 0; i < reservasUsuario.size(); i++) {
-        auxBooking = reservasUsuario.get(i);
-        if(auxBooking.getMadeForDay().equals(diaSel) && auxBooking.getCourt().equals(pista)){
-            HorariosUsuario.add(auxBooking.getFromTime()); // Tengo todas las horas a las que ha reservado el usuario
-        }
-        
-    }
-
-    int horasSeguidasPos = 0;
-    int horasSeguidasAnt = 0;
-    
-
-    for (int i = 0; i<HorariosUsuario.size(); i++) {
-        if (HorariosUsuario.get(i).plusHours(1).equals(horaInSel) || HorariosUsuario.get(i).plusHours(2).equals(horaInSel)) {
-            horasSeguidasPos++;
-        }else if(HorariosUsuario.get(i).minusHours(1).equals(horaInSel) || HorariosUsuario.get(i).minusHours(2).equals(horaInSel)){
-            horasSeguidasAnt++;
-        }
-    }
-    
-    if(horasSeguidasAnt>= 2 ||horasSeguidasPos >=2 ){
-        encontrado = true;
-    }
-    
-
-    return encontrado;
-}
-
     
     public void iniciar(){
         hora_Inicio.disableProperty();
@@ -505,5 +494,149 @@ public class ReservarPistaEspecifica extends DateCell  implements Initializable 
         aceptarButton.disableProperty();
         calendario.requestFocus();
         
+        HorariosReservas.clear();
+        
     }
+    
+    public void cambioFoto(int i){
+        
+        switch (i){
+            case 1:
+                Image imagen1 = new Image("images/pista1.png");
+                panelFoto.setImage(imagen1);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+            case 2:
+                Image imagen2 = new Image("images/pista2.png");
+                panelFoto.setImage(imagen2);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+            case 3:
+                Image imagen3 = new Image("images/pista3.png");
+                panelFoto.setImage(imagen3);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+                
+            case 4:    
+                Image imagen4 = new Image("images/pista4.png");
+                panelFoto.setImage(imagen4);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+            case 5:
+                Image imagen5 = new Image("images/pista5.png");
+                panelFoto.setImage(imagen5);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+                
+            case 6:
+                Image imagen6 = new Image("images/pista6.png");
+                panelFoto.setImage(imagen6);
+                panelFoto.setFitHeight(150);//alto
+                panelFoto.setFitWidth(250);//ancho
+                break;
+        }
+        
+        
+                
+        
+        
+    }
+
+    @FXML
+    private void activeToolBar(){
+        if(userFeatures.isVisible()){
+            userFeatures.setVisible(false);
+            
+        }else{
+            userFeatures.setVisible(true);
+        }
+    }
+
+    @FXML
+    private void goMisDatos(MouseEvent event) {
+        CambioDatos controller = (CambioDatos) JavaFXMLApplication.getController("CambioDatos");
+        controller.cambiarUser(member);
+        controller.setDestino("ReservarPistaEspecifica");
+        JavaFXMLApplication.setRoot("CambioDatos");
+        controller.setFocus();
+        AlertImage.setVisible(false);
+        AlertText.setVisible(false);
+    }
+
+    @FXML
+    private void goInicio(MouseEvent event) {
+        JavaFXMLApplication.setRoot("PaginaInicio");
+        PaginaInicioController controller = (PaginaInicioController)JavaFXMLApplication.getController("PaginaInicio");
+        controller.actualizarTabla();
+    }
+    
+    
+    
+    public boolean permitido60(){//comprobar, si se quiere reservar 60 minutos si hay 2 reservas ya de el 
+     HorariosUsuario.clear();
+     encontrado = false;
+     reservasUsuario = greenBall.getUserBookings(member.getNickName());
+     
+    
+     
+     for(int i = 0; i<reservasUsuario.size(); i++){//bucle para obtener todas las fechas reseervas de ese usuario para ese dia y pista
+         auxBooking= reservasUsuario.get(i);  // en HorariosUsuarios las horas de las reservas a las que empiezan 
+         
+         if(auxBooking.getMadeForDay().equals(diaSel)  && auxBooking.getCourt().equals(pista)){
+             HorariosUsuario.add(auxBooking.getFromTime()); 
+         }   
+     }
+     
+     
+     if(HorariosUsuario.isEmpty()){
+         return false;
+     }
+    
+     if(HorariosUsuario.contains(horaInSel.plusHours(1))  && HorariosUsuario.contains(horaInSel.plusHours(2))){
+         encontrado = true;
+     }
+     
+     if(HorariosUsuario.contains(horaInSel.minusHours(1)) && HorariosUsuario.contains(horaInSel.minusHours(2))){
+         encontrado = true;
+     }
+     
+     return encontrado;
+    }
+    
+    public boolean permitido120(){//comprobar si se quiere reservar 120 min si hay 1 reserva ya de el 
+        encontrado = false;
+        HorariosUsuario.clear();
+        reservasUsuario = greenBall.getUserBookings(member.getNickName());
+     
+        
+     
+        for(int i = 0; i<reservasUsuario.size(); i++){//bucle para obtener todas las fechas reseervas de ese usuario para ese dia y pista
+            auxBooking= reservasUsuario.get(i);  // en HorariosUsuarios las horas de las reservas a las que empiezan 
+         
+            if(auxBooking.getMadeForDay().equals(diaSel)  && auxBooking.getCourt().equals(pista)){
+             HorariosUsuario.add(auxBooking.getFromTime()); 
+            }   
+        }
+        
+        if(HorariosUsuario.isEmpty()){//no hay ninguna reserva para ese usurario ese dia, no hay que comprobar
+         return false;
+        }
+        
+        if(HorariosUsuario.contains(horaInSel.minusHours(1))){
+            encontrado = true;
+        }
+        
+        if(HorariosUsuario.contains(horaInSel.plusHours(2))){
+            encontrado = true;
+        }
+        
+        return encontrado;
+    }
+    
+    
 } 

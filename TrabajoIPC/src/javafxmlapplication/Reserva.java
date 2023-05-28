@@ -22,9 +22,8 @@ public class Reserva{
         dia.setValue(booking.getMadeForDay().getDayOfMonth() + "/" + booking.getMadeForDay().getMonthValue() + "/" + booking.getMadeForDay().getYear());
         horaIni.setValue(booking.getFromTime().getHour() + ":00");
         horaFin.setValue((booking.getFromTime().getHour() + 1) + ":00");
-        if(booking.getPaid()){pagado.setValue("images/accept_white.png");}
-        else {pagado.setValue("images/cancel_white.png");}
-        colored.setValue(booking.getPaid());
+        if(booking.getPaid()){pagado.setValue("images/accept_white.png"); colored.setValue(true);}
+        else {pagado.setValue("images/cancel_white.png");  colored.setValue(false);}
     }
     
     public BooleanProperty ColoredProperty(){
@@ -82,5 +81,9 @@ public class Reserva{
     
     public String getPagado(){
         return pagado.getValue();
+    }
+    
+    public void setPagado(String route){
+        pagado.setValue(route);
     }
 }

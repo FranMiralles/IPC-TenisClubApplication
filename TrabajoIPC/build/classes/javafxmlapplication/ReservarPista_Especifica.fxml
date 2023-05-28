@@ -19,54 +19,78 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="872.0" style="-fx-background-color: #7bcb53;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
+<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="872.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/Pista_Especifica.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
    <effect>
       <ColorAdjust />
    </effect>
    <bottom>
-      <Pane prefHeight="56.0" prefWidth="872.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="56.0" prefWidth="872.0" style="-fx-background-color: #24740c;" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#volver_Inicio" stylesheets="@../styles/EstilosFondo.css" text="Volver" />
+            <Button layoutX="14.0" layoutY="12.0" mnemonicParsing="false" onAction="#volver_Inicio">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children></Pane>
    </bottom>
    <center>
-      <VBox alignment="CENTER" prefHeight="473.0" prefWidth="872.0" styleClass="char" stylesheets="@../styles/Pista_Especifica.css" BorderPane.alignment="CENTER">
+      <VBox alignment="CENTER" prefHeight="473.0" prefWidth="872.0" styleClass="char" BorderPane.alignment="CENTER">
          <children>
-            <HBox alignment="BOTTOM_CENTER" prefHeight="68.0" prefWidth="811.0">
+            <HBox alignment="CENTER" prefWidth="872.0" style="-fx-background-color: #24740c;">
                <VBox.margin>
-                  <Insets top="-10.0" />
+                  <Insets top="10.0" />
                </VBox.margin>
             </HBox>
             <VBox alignment="CENTER" prefHeight="307.0" prefWidth="872.0" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="301.0" prefWidth="687.0" styleClass="paneles" stylesheets="@../styles/Pista_Especifica.css" VBox.vgrow="ALWAYS">
                      <children>
-                        <HBox alignment="CENTER" layoutX="-51.0" layoutY="-22.0" prefHeight="391.0" prefWidth="788.0" spacing="12.0" style="-fx-background-color: #a4dc8c;" styleClass="panel" stylesheets="@../css/ReservaEspecifica.css" AnchorPane.bottomAnchor="-109.0" AnchorPane.leftAnchor="-51.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="-22.0">
+                        <HBox alignment="CENTER" layoutX="-51.0" layoutY="-22.0" prefHeight="391.0" prefWidth="788.0" spacing="12.0" style="-fx-background-color: #a4dc8c;" styleClass="panel" AnchorPane.bottomAnchor="-109.0" AnchorPane.leftAnchor="-51.0" AnchorPane.rightAnchor="-50.0" AnchorPane.topAnchor="-22.0">
                            <children>
-                              <VBox prefHeight="317.0" prefWidth="272.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
+                              <VBox alignment="CENTER" prefHeight="317.0" prefWidth="272.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
                                  <children>
-                                    <Pane prefHeight="179.0" prefWidth="240.0" style="-fx-background-color: #7bcb53;">
+                                    <ImageView fx:id="panelFoto" fitHeight="150.0" fitWidth="250.0" pickOnBounds="true" preserveRatio="true">
                                        <VBox.margin>
-                                          <Insets left="5.0" right="6.0" top="49.0" />
-                                       </VBox.margin>
-                                    </Pane>
-                                    <Label fx:id="TextoDePista" alignment="TOP_LEFT" prefHeight="70.0" prefWidth="283.0" styleClass="text-field" text="Descripcion de la pista" textAlignment="JUSTIFY" textOverrun="CLIP" wrapText="true">
+                                          <Insets bottom="-44.0" />
+                                       </VBox.margin></ImageView>
+                                    <Label fx:id="TextoDePista" alignment="TOP_LEFT" prefHeight="114.0" prefWidth="256.0" style="-fx-font-family: &quot;Arial&quot;;" styleClass="text-field" text="Descripcion de la pista" textOverrun="CLIP" wrapText="true">
                                        <VBox.margin>
-                                          <Insets left="4.0" right="4.0" top="19.0" />
+                                          <Insets left="8.0" right="8.0" top="56.0" />
                                        </VBox.margin>
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
                                     </Label>
                                  </children>
                                  <HBox.margin>
                                     <Insets bottom="27.0" left="10.0" right="-9.0" top="38.0" />
                                  </HBox.margin>
                               </VBox>
-                              <VBox prefHeight="392.0" prefWidth="386.0" style="-fx-background-color: #7bcb53;" styleClass="paneles" stylesheets="@../css/ReservaEspecifica.css">
+                              <VBox prefHeight="392.0" prefWidth="386.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
                                  <children>
+                                    <HBox alignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="-10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label fx:id="titulo" styleClass="titulo" stylesheets="@../styles/Pista_Especifica.css" text="Titulo" textAlignment="CENTER">
+                                             <HBox.margin>
+                                                <Insets top="30.0" />
+                                             </HBox.margin>
+                                          </Label>
+                                       </children>
+                                    </HBox>
                                     <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="386.0">
                                        <columnConstraints>
                                           <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.20001220703125" minWidth="10.0" prefWidth="70.4000244140625" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.399951171875" minWidth="10.0" prefWidth="169.2" />
-                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.59999084472656" minWidth="10.0" prefWidth="158.0" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.399951171875" minWidth="10.0" prefWidth="164.00002441406252" />
+                                          <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.59999084472656" minWidth="10.0" prefWidth="155.99997558593748" />
                                        </columnConstraints>
                                        <rowConstraints>
                                           <RowConstraints maxHeight="125.6" minHeight="83.39998779296874" prefHeight="120.79998168945312" vgrow="SOMETIMES" />
@@ -94,25 +118,25 @@
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </DatePicker>
-                                          <ComboBox fx:id="hora_Inicio" prefHeight="27.0" prefWidth="150.0" promptText="         Hora de Inicio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                          <ComboBox fx:id="hora_Inicio" prefHeight="30.0" prefWidth="151.0" promptText="Hora de Inicio" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                              <GridPane.margin>
-                                                <Insets left="10.0" top="5.0" />
+                                                <Insets left="6.0" right="11.0" top="5.0" />
                                              </GridPane.margin>
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                           </ComboBox>
-                                          <ComboBox fx:id="hora_Fin" prefHeight="27.0" prefWidth="150.0" promptText="           Hora de Fin" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                          <ComboBox fx:id="hora_Fin" prefHeight="30.0" prefWidth="151.0" promptText="Hora de Fin" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                              <cursor>
                                                 <Cursor fx:constant="HAND" />
                                              </cursor>
                                              <GridPane.margin>
-                                                <Insets top="5.0" />
+                                                <Insets right="7.0" top="5.0" />
                                              </GridPane.margin>
                                           </ComboBox>
                                        </children>
                                        <VBox.margin>
-                                          <Insets bottom="24.0" top="41.0" />
+                                          <Insets bottom="24.0" />
                                        </VBox.margin>
                                     </GridPane>
                                     <ImageView fx:id="AlertImage" fitHeight="27.0" fitWidth="16.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -123,18 +147,21 @@
                                           <Insets bottom="10.0" left="3.0" />
                                        </VBox.margin>
                                     </ImageView>
-                                    <Button fx:id="aceptarButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#aceptar" prefHeight="32.0" prefWidth="72.0" stylesheets="@../styles/Pista_Especifica.css" text="Aceptar">
+                                    <Button fx:id="aceptarButton" contentDisplay="TOP" mnemonicParsing="false" onAction="#aceptar" stylesheets="@../styles/Pista_Especifica.css" text="Aceptar">
                                        <VBox.margin>
-                                          <Insets bottom="-34.0" left="307.0" />
+                                          <Insets bottom="-35.0" left="307.0" />
                                        </VBox.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </Button>
-                                    <Button fx:id="borrarButon" contentDisplay="TOP" mnemonicParsing="false" onAction="#borrar_Datos" prefHeight="32.0" prefWidth="72.0" stylesheets="@../styles/Pista_Especifica.css" text="Borrar">
+                                    <Button fx:id="borrarButon" contentDisplay="TOP" mnemonicParsing="false" onAction="#borrar_Datos" stylesheets="@../styles/Pista_Especifica.css" text="Borrar">
                                        <VBox.margin>
                                           <Insets bottom="22.0" left="225.0" />
                                        </VBox.margin>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                     <Label fx:id="AlertText" alignment="TOP_LEFT" prefHeight="50.0" prefWidth="201.0" text="No quedan horarios disponibles" textFill="RED" wrapText="true">
                                        <VBox.margin>
@@ -165,10 +192,61 @@
       </VBox>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="74.0" prefWidth="872.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
+      <VBox styleClass="char" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="titulo" styleClass="titulo" stylesheets="@../styles/Pista_Especifica.css" text="Titulo" textAlignment="CENTER" />
+            <HBox spacing="10.0" style="-fx-background-color: #24740c;">
+               <children>
+                  <VBox fx:id="bordeFoto" alignment="CENTER" style="-fx-background-color: gray;">
+                     <children>
+                        <ImageView fx:id="perfil" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#activeToolBar" pickOnBounds="true" styleClass="perfil">
+                           <image>
+                              <Image url="@../avatars/default.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="user" onMouseClicked="#activeToolBar" text="Usuario" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="name" text="Fran Miralles" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="userFeatures" spacing="15.0" style="-fx-background-color: #74a464;">
+               <children>
+                  <Label onMouseClicked="#goMisDatos" text="Mis Datos" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="cerrarSesion" onMouseClicked="#goInicio" text="Cerrar Sesión" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </top>
 </BorderPane>

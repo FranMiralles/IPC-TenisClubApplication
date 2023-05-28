@@ -165,14 +165,11 @@ public class MisReservas implements Initializable {
                 super.updateItem(item, empty);
 
                 if (item != null && !empty) {
-                    // Aquí puedes personalizar el estilo de la fila según tus requisitos
                     if (item.getColored()) {
                         setStyle("-fx-background-color: #74a464;");  // Cambiar el color de fondo a verde
                     } else {
-                        setStyle("-fx-background-color: #e40606;");  // Cambiar el color de fondo a rojo
+                        setStyle("-fx-background-color: #ff4f76;");  // Cambiar el color de fondo a rojo
                     }
-                } else {
-                    setStyle("");  // Restablecer el estilo predeterminado de la fila
                 }
             }
         });
@@ -222,11 +219,16 @@ public class MisReservas implements Initializable {
         for(int i = 0; i < lista.size(); i++){
             Reserva reserva = new Reserva(lista.get(i));
             bookingList.add(reserva);
-            if(member.checkHasCreditInfo()){ reserva.setColored(true);}
-            else{ reserva.setColored(false);}
+            if(reserva.getBooking().getPaid()){
+                reserva.setColored(true);
+                reserva.setPagado("images/accept_white.png");
+            }else{
+                reserva.setColored(false);
+                reserva.setPagado("images/cancel_white.png");
+            }
         }
         tabla.setItems(bookingList);
-        tabla.refresh();
+        tabla.refresh();       
     }
     
     @FXML
@@ -252,8 +254,8 @@ public class MisReservas implements Initializable {
     private void pagar(){
         Reserva reserva = tabla.getSelectionModel().getSelectedItem();
         
-        if(member.checkHasCreditInfo()){
-            //Avisar de que ya está pagado
+        if(reserva.getColored()){
+            //Si está pagado
             Alert alert = new Alert(AlertType.INFORMATION);
             alert.setTitle("Pagar");
             alert.setHeaderText(null);
@@ -262,34 +264,49 @@ public class MisReservas implements Initializable {
             alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
             alert.showAndWait();
         }else{
-            //Avisar de introducir tarjeta en los datos
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Pagar");
-            alert.setHeaderText(null);
-            
-            //Estilo del background
-            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
-            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
-            alert.setContentText("No tienes tarjeta de crédito, indícala");
-            
-            //Poner aceptar y ir a mis datos en el mismo nivel que acpetar original
-            ButtonType aceptarButton = new ButtonType("Aceptar", ButtonBar.ButtonData.OK_DONE);
-            ButtonType irAMisDatosButton = new ButtonType("Ir a mis datos", ButtonBar.ButtonData.OTHER);
-            
-            alert.getButtonTypes().setAll(aceptarButton, irAMisDatosButton);
-            
-            //Instancias de los botones para darles métodos y estilos
-            Button aceptar = (Button) alert.getDialogPane().lookupButton(aceptarButton);
-            aceptar.setOnAction(c -> alert.close());
-            
-            
-            Button irAMisDatos = (Button) alert.getDialogPane().lookupButton(irAMisDatosButton);
-            irAMisDatos.setOnAction(c -> {
-                alert.close();
-                goMisDatos();
-            });
-            
-            alert.showAndWait();
+            //Si no está pagado
+            if(member.checkHasCreditInfo()){
+                //Si ya tiene tarjeta de crédito, solo tiene que pagar
+                Alert alert = new Alert(AlertType.INFORMATION);
+                alert.setTitle("Pagando");
+                alert.setHeaderText(null);
+                alert.setContentText("Pago realizado con éxito");
+                alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+                alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+                reserva.getBooking().setPaid(true);
+                alert.showAndWait();
+                actualizarTabla();
+                reserva.getBooking().setPaid(true);
+            }else{
+                //Avisar de introducir tarjeta en los datos
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Pagar");
+                alert.setHeaderText(null);
+
+                //Estilo del background
+                alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+                alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+                alert.setContentText("No tienes tarjeta de crédito, indícala");
+
+                //Poner aceptar y ir a mis datos en el mismo nivel que acpetar original
+                ButtonType aceptarButton = new ButtonType("Aceptar", ButtonBar.ButtonData.OK_DONE);
+                ButtonType irAMisDatosButton = new ButtonType("Ir a mis datos", ButtonBar.ButtonData.OTHER);
+
+                alert.getButtonTypes().setAll(aceptarButton, irAMisDatosButton);
+
+                //Instancias de los botones para darles métodos y estilos
+                Button aceptar = (Button) alert.getDialogPane().lookupButton(aceptarButton);
+                aceptar.setOnAction(c -> alert.close());
+
+
+                Button irAMisDatos = (Button) alert.getDialogPane().lookupButton(irAMisDatosButton);
+                irAMisDatos.setOnAction(c -> {
+                    alert.close();
+                    goMisDatos();
+                });
+
+                alert.showAndWait();
+            }
         }
     }
 

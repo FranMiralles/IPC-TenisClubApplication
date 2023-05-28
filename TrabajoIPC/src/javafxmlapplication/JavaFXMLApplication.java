@@ -32,32 +32,32 @@ public class JavaFXMLApplication extends Application {
                 stage.setMinHeight(440);
                 break;
             case "ReservarPistas":
-                stage.setMinWidth(775);
-                stage.setMinHeight(462);
+                stage.setMinWidth(810);
+                stage.setMinHeight(780);
                 break;
             case  "MisReservas" :
                 stage.setMinWidth(788);
                 stage.setMinHeight(528);
                 break;
             case  "PaginaInicio":
-                stage.setMinWidth(817);
-                stage.setMinHeight(658);
+                stage.setMinWidth(850);
+                stage.setMinHeight(750);
                 break;
-            case "PistaEspecifica":
-                stage.setMinWidth(760);
-                stage.setMinHeight(560);
+            case "ReservarPistaEspecifica":
+                stage.setMinWidth(872);
+                stage.setMinHeight(750);
                 break;
             case "RegistroUsuario":
                 stage.setMinWidth(922);
-                stage.setMinHeight(760);
+                stage.setMinHeight(850);
                 break;
             case "CambioDatos":
                 stage.setMinWidth(922);
-                stage.setMinHeight(760);
+                stage.setMinHeight(850);
                 break;
             case "IniciarSesion":
                 stage.setMinWidth(700);
-                stage.setMinHeight(550);
+                stage.setMinHeight(600);
                 break;
             }
         }else{
@@ -126,8 +126,8 @@ public class JavaFXMLApplication extends Application {
         
         scene = new Scene(roots.get("PaginaInicio"));
         
-        stage.setMinWidth(817);
-        stage.setMinHeight(658);
+        stage.setMinWidth(850);
+        stage.setMinHeight(750);
         
         stage.setScene(scene);
         stage.setTitle("GreenBall");

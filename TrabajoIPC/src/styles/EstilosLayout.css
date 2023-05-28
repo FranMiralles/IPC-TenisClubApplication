@@ -1,9 +1,3 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-
-
 .button {
     -fx-background-color: #7bcb53;
     -fx-text-fill: white;
@@ -12,14 +6,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
     -fx-padding: 8px;
     -fx-border-radius: 5px;
     -fx-background-radius: 5px;
+    -fx-border-color: black;
 }
 
 .button:hover {
     -fx-background-color: #a4dc8c;
+    -fx-border-color: white;
 }
 
 .button:focused {
-    -fx-background-color: #a4dc8c;
+    -fx-border-color: white;
 }
 
 .chart{

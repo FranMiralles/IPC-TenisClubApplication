@@ -322,8 +322,23 @@ public class CambioDatos implements Initializable {
             }
             mostrarAlert();
             limpiarCampos();
-            PaginaPrincipal controller = (PaginaPrincipal) JavaFXMLApplication.getController("PaginaPrincipal");
-            controller.cambiarUser(member);
+            
+            if(destino.equals("MisReservas")){
+                MisReservas controller = (MisReservas) JavaFXMLApplication.getController("MisReservas");
+                controller.cambiarUser(member);
+            }
+
+            if(destino.equals("PaginaPrincipal")){
+                PaginaPrincipal controller = (PaginaPrincipal) JavaFXMLApplication.getController("PaginaPrincipal");
+                controller.cambiarUser(member);
+            }
+            
+            if(destino.equals("ReservarPistaEspecifica")){
+                ReservarPistaEspecifica controller = (ReservarPistaEspecifica) JavaFXMLApplication.getController("ReservarPistaEspecifica");
+                if(member.checkHasCreditInfo()){ controller.paid = true;}
+                else{ controller.paid = false;}
+            }
+            
             JavaFXMLApplication.setRoot(destino);
             }catch(Exception e){
                 System.err.println(e.toString());
@@ -340,7 +355,6 @@ public class CambioDatos implements Initializable {
         cambiarUser(member);
     }
     
-    @FXML
     private void eliminar() {
         limpiarCampos();
         JavaFXMLApplication.setRoot("PaginaPricipal");

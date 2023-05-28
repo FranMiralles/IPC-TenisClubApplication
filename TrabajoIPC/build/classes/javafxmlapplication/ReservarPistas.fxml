@@ -6,6 +6,8 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.ColorAdjust?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -14,16 +16,25 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
 <BorderPane fx:id="idReservarPista" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="810.0" style="-fx-background-color: #7bcb53;" styleClass="char" stylesheets="@../styles/pistas_Reservar.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistas">
    <effect>
       <ColorAdjust />
    </effect>
    <bottom>
-      <Pane prefHeight="54.0" prefWidth="810.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="54.0" prefWidth="810.0" style="-fx-background-color: #24740c;" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <children>
-            <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#Volver_buton" stylesheets="@../styles/EstilosFondo.css" text="Voler" />
+            <Button layoutX="14.0" layoutY="11.0" mnemonicParsing="false" onAction="#Volver_buton">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children></Pane>
    </bottom>
    <center>
@@ -37,12 +48,12 @@
               </columnConstraints>
               <rowConstraints>
                   <RowConstraints maxHeight="1.7976931348623157E308" minHeight="2.0" percentHeight="0.0" valignment="CENTER" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" valignment="CENTER" vgrow="ALWAYS" />
-                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" vgrow="ALWAYS" />
-                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="145.59998168945313" valignment="CENTER" vgrow="ALWAYS" />
+                  <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="55.20001831054688" vgrow="ALWAYS" />
+                <RowConstraints maxHeight="1.7976931348623157E308" minHeight="10.0" percentHeight="0.0" prefHeight="144.00000610351566" valignment="CENTER" vgrow="ALWAYS" />
               </rowConstraints>
                <children>
-                  <Label contentDisplay="TOP" styleClass="titulo" text="Pista 1" textFill="WHITE">
+                  <Label contentDisplay="TOP" styleClass="titulo" text="Pista Cemento" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -50,12 +61,12 @@
                         <Insets left="19.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label styleClass="titulo" text="Pista 2" textFill="WHITE" GridPane.columnIndex="1">
+                  <Label styleClass="titulo" text="Pista Hierba" textFill="WHITE" GridPane.columnIndex="1">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label styleClass="titulo" text="Pista 3" textFill="WHITE" GridPane.columnIndex="2">
+                  <Label styleClass="titulo" text="Pista Niños" textFill="WHITE" GridPane.columnIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -63,25 +74,28 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label styleClass="titulo" text="Pista 4" textFill="WHITE" GridPane.rowIndex="2">
+                  <Label styleClass="titulo" text="Pista Padel" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets left="19.0" />
+                        <Insets left="19.0" top="13.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label styleClass="titulo" text="Pista 5" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="18.0" />
-                     </font>
-                  </Label>
-                  <Label styleClass="titulo" text="Pista 6" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label styleClass="titulo" text="Pista Resina" textFill="WHITE" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
                      <GridPane.margin>
-                        <Insets right="10.0" />
+                        <Insets top="13.0" />
+                     </GridPane.margin>
+                  </Label>
+                  <Label styleClass="titulo" text="Pista Tierra Batida" textFill="WHITE" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <GridPane.margin>
+                        <Insets right="10.0" top="13.0" />
                      </GridPane.margin>
                   </Label>
                   <Pane fx:id="Pista_1" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#cambio_1" onMouseEntered="#movimiento_1" onMouseExited="#normal_1" onTouchMoved="#cambio_1" prefHeight="138.0" prefWidth="202.0" stylesheets="@../styles/pistas_Reservar.css" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
@@ -92,8 +106,8 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="chart1" />
                         <String fx:value="gride-sadow" />
+                        <String fx:value="chart2" />
                      </styleClass>
                   </Pane>
                   <Pane fx:id="Pista_3" layoutX="222.0" layoutY="74.0" onMouseClicked="#cambio_3" onMouseEntered="#movimiento_3" onMouseExited="#normal_3" prefHeight="138.0" prefWidth="206.0" stylesheets="@../styles/pistas_Reservar.css" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS">
@@ -104,7 +118,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="chart3" />
+                        <String fx:value="chart5" />
                         <String fx:value="gride-sadow" />
                      </styleClass>
                   </Pane>
@@ -116,11 +130,11 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="chart1" />
+                        <String fx:value="chart6" />
                         <String fx:value="gride-sadow" />
                      </styleClass>
                   </Pane>
-                  <Pane fx:id="Pista_5" layoutX="410.0" layoutY="74.0" onMouseClicked="#cambio_5" onMouseEntered="#movimiento_5" onMouseExited="#normal_5" prefHeight="108.0" prefWidth="200.0" stylesheets="@../styles/pistas_Reservar.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
+                  <Pane fx:id="Pista_5" layoutX="410.0" layoutY="74.0" onMouseClicked="#cambio_5" onMouseEntered="#movimiento_5" onMouseExited="#normal_5" prefHeight="140.0" prefWidth="197.0" stylesheets="@../styles/pistas_Reservar.css" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" GridPane.vgrow="ALWAYS">
                      <GridPane.margin>
                         <Insets bottom="14.0" />
                      </GridPane.margin>
@@ -128,7 +142,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="chart2" />
+                        <String fx:value="chart4" />
                         <String fx:value="gride-sadow" />
                      </styleClass>
                   </Pane>
@@ -152,7 +166,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                      <styleClass>
-                        <String fx:value="chart2" />
+                        <String fx:value="chart1" />
                         <String fx:value="gride-sadow" />
                      </styleClass>
                   </Pane>
@@ -166,14 +180,61 @@
       </VBox>
    </center>
    <top>
-      <HBox alignment="CENTER" prefHeight="73.0" prefWidth="832.0" spacing="18.0" style="-fx-background-color: #24740c;" BorderPane.alignment="CENTER">
+      <VBox BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="titulo" text="Reservas">
-               <font>
-                  <Font size="39.0" />
-               </font>
-            </Text>
+            <HBox spacing="10.0" style="-fx-background-color: #24740c;">
+               <children>
+                  <VBox fx:id="bordeFoto" alignment="CENTER" style="-fx-background-color: gray;">
+                     <children>
+                        <ImageView fx:id="perfil" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#activeToolBar" pickOnBounds="true" styleClass="perfil">
+                           <image>
+                              <Image url="@../avatars/default.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                     <padding>
+                        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                     </padding>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="user" onMouseClicked="#activeToolBar" text="Usuario" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Label>
+                        <Label fx:id="name" text="Fran Miralles" textFill="WHITE" />
+                     </children>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
+            <HBox fx:id="userFeatures" spacing="15.0" style="-fx-background-color: #74a464;">
+               <children>
+                  <Label onMouseClicked="#goMisDatos" text="Mis Datos" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+                  <Label fx:id="cerrarSesion" onMouseClicked="#goInicio" text="Cerrar Sesión" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </padding>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </top>
 </BorderPane>

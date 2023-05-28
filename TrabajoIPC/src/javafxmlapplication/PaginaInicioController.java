@@ -2,8 +2,6 @@ package javafxmlapplication;
 
 import java.net.URL;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -113,26 +111,25 @@ public class PaginaInicioController implements Initializable {
         
         
         //Parte de la selección de pistas
-        imageArray[0] = new Image("images/pista1.png", 250, 150, false, true);
-        imageArray[1] = new Image("images/pista2.png", 250, 150, false, true);
-        imageArray[2] = new Image("images/pista3.png", 250, 150, false, true);
-        imageArray[3] = new Image("images/pista1.png", 250, 150, false, true);
-        imageArray[4] = new Image("images/pista2.png", 250, 150, false, true);
+        imageArray[0] = new Image("images/pista2.png", 250, 150, false, true);
+        imageArray[1] = new Image("images/pista1.png", 250, 150, false, true);
+        imageArray[2] = new Image("images/pista5.png", 250, 150, false, true);
+        imageArray[3] = new Image("images/pista6.png", 250, 150, false, true);
+        imageArray[4] = new Image("images/pista4.png", 250, 150, false, true);
         imageArray[5] = new Image("images/pista3.png", 250, 150, false, true);
-
         
         List<Court> listaPistas = greenBall.getCourts();
+
         for(int i = 0; i < listaPistas.size(); i++){
             nombreArray[i] = listaPistas.get(i).getName();
         }
         
-        
-        descripcionPista[0] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 1";
-        descripcionPista[1] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 2";
-        descripcionPista[2] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 3";
-        descripcionPista[3] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 4";
-        descripcionPista[4] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 5";
-        descripcionPista[5] = "Pista de tierra batida, preparada para amateurs que quieran tener una experiencia cercana a un campo realista de torneo 6";
+        descripcionPista[0] = "Una pista de tenis dura de cemento, con una superficie sólida y resistene, lineas bien definidas y un bote rápido y consistente. Perfecto para un juego de potencia y agresividad, donde poder desplegar su fuerza en cada golpe. Esta pista es ideal tanto para partidos individuales como para encuentros en pareja.";
+        descripcionPista[1] = "Una pista de cesped natural con una superficie verde, exhuberante y suave. Perfecto para un juego clásico y técnico, donde los jugadores pueden disfrutar de la belleza y tradición sobre cesped. Ofrece un bote bajo y deslizante, lo que requiere un juego preciso y único.";
+        descripcionPista[2] = "Una pista de tenis diseñada especialmente para los niños, con una superficie suave y segura. Perfecto para un juego donde los niños puedan aprender las técnicas básicas de tenis mientras se divierten. La pista está adapatada a su tamaño y capacidad, fomentando el desarrollo de habilidades motoras y promoviendo un ambiento de juego inclusivo y estimulante.";
+        descripcionPista[3] = "Una pista de pádel profesional, con una superficie de césped artificial de alta calidad, líneas bien marcadas y un bote rápido y dinámico. Donde los jugadores pueden aprovechar las paredes para realizar golpes de efecto. Además, cuenta con una estructura cerrada que favorece el juego en equipo y la comunicación entre los jugadores.";
+        descripcionPista[4] = "Una pista de tenis con una superficie de resina compacta y de longitud moderada, lineas nítidas y bote firme. Perfecto para un juego en el que poder tomar decisiones rápidas en cada jugada. La superficie de resina ofrece buena tracción, lo que permite una excelente respuesta y control de movimientos.";
+        descripcionPista[5] = "Una pista de tenis profesional, con una suave superficie de arcilla roja, líneas bien definidas y un bote controlado. Perfecto para juego estratégico y táctico, donde los jugadores puedan deslizarse con facilidad y desplegar su habilidad en cada golpe.";
         
         nombrePista.setText(nombreArray[0]);
         imagenPista.setImage(imageArray[0]);
@@ -216,7 +213,7 @@ public class PaginaInicioController implements Initializable {
                     if (item.getColored()) {
                         setStyle("-fx-background-color: #74a464;");  // Cambiar el color de fondo a verde
                     } else {
-                        setStyle("-fx-background-color: #e40606;");  // Cambiar el color de fondo a rojo
+                        setStyle("-fx-background-color: #ff4f76;");  // Cambiar el color de fondo a rojo
                     }
                 } else {
                     setStyle("");  // Restablecer el estilo predeterminado de la fila

@@ -34,7 +34,14 @@
    <bottom>
       <HBox style="-fx-background-color: #24740c;" styleClass="chart" stylesheets="@../styles/EstilosLayout.css" BorderPane.alignment="CENTER">
          <children>
-            <Button mnemonicParsing="false" onAction="#volver" text="Volver" />
+            <Button mnemonicParsing="false" onAction="#volver">
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/volver.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Button>
          </children>
          <padding>
             <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
