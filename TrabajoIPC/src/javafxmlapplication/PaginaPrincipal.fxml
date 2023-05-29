@@ -105,9 +105,9 @@
                               <Image url="@../images/ReservarNegro.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="reservaTexto" text="Realiza una reserva de nuestras pistas" wrapText="true">
+                        <Label fx:id="reservaTexto" text="Realiza una reserva de nuestras pistas" textAlignment="CENTER" wrapText="true">
                            <font>
-                              <Font size="12.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -133,9 +133,9 @@
                               <Image url="@../images/logoNegro.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="greenBallText" text="Sobre nosotros" wrapText="true">
+                        <Label fx:id="greenBallText" text="Sobre nosotros" textAlignment="CENTER" wrapText="true">
                            <font>
-                              <Font size="12.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
@@ -161,9 +161,9 @@
                               <Image url="@../images/VerReservasNegro.png" />
                            </image>
                         </ImageView>
-                        <Label fx:id="misReservasText" text="Accede a tus reservas y adminístralas" wrapText="true">
+                        <Label fx:id="misReservasText" text="Accede a tus reservas y adminístralas" textAlignment="CENTER" wrapText="true">
                            <font>
-                              <Font size="12.0" />
+                              <Font size="14.0" />
                            </font>
                         </Label>
                      </children>
