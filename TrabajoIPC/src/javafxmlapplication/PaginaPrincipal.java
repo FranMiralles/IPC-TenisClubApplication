@@ -110,7 +110,6 @@ public class PaginaPrincipal implements Initializable {
             misReservasText.setStyle("-fx-text-fill: #ffffff;");
         });
         
-        
         misReservas.setOnMouseExited(c ->{
             misReservasTitle.setStyle("-fx-text-fill: #000000;");
             misReservasFoto.setImage(verReservasNegro);
