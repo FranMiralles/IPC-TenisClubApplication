@@ -20,7 +20,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="872.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondoInicio.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
+<BorderPane fx:id="idReservarPistaEspecifica" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="910.0" style="-fx-background-color: #7bcb53;" stylesheets="@../styles/EstilosFondoInicio.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxmlapplication.ReservarPistaEspecifica">
    <effect>
       <ColorAdjust />
    </effect>
@@ -103,7 +103,7 @@
          <children>
             <StackPane>
                <children>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="470.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="830.0" />
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#d7ebd2" height="470.0" opacity="0.64" stroke="#24740c" strokeType="INSIDE" styleClass="paneles" width="900.0" />
                   <HBox alignment="CENTER" maxHeight="-Infinity" prefHeight="500.0" spacing="12.0">
                      <children>
                         <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="400.0" spacing="20.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
@@ -129,7 +129,7 @@
                               <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                            </padding>
                         </VBox>
-                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="386.0" spacing="20.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
+                        <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="500.0" prefWidth="450.0" spacing="20.0" style="-fx-background-color: #7bcb53;" styleClass="paneles">
                            <children>
                               <HBox alignment="CENTER">
                                  <VBox.margin>
@@ -143,11 +143,11 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0" prefWidth="386.0">
+                              <GridPane alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="168.0">
                                  <columnConstraints>
                                     <ColumnConstraints hgrow="SOMETIMES" maxWidth="119.20001220703125" minWidth="10.0" prefWidth="72.0" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="184.399951171875" minWidth="10.0" prefWidth="147.5" />
-                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="172.59999084472656" minWidth="10.0" prefWidth="147.5" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="197.0" />
+                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="180.0" minWidth="10.0" prefWidth="197.0" />
                                  </columnConstraints>
                                  <rowConstraints>
                                     <RowConstraints maxHeight="125.6" minHeight="83.39998779296874" prefHeight="101.0" vgrow="SOMETIMES" />
@@ -170,25 +170,28 @@
                                           <Font size="16.0" />
                                        </font>
                                     </Label>
-                                    <DatePicker fx:id="calendario" prefHeight="27.0" prefWidth="150.0" GridPane.columnIndex="1">
+                                    <DatePicker fx:id="calendario" prefHeight="40.0" prefWidth="197.0" GridPane.columnIndex="1" GridPane.valignment="CENTER">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
-                                    </DatePicker>
-                                    <ComboBox fx:id="hora_Inicio" prefHeight="40.0" prefWidth="197.0" promptText="INICIO" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                        <GridPane.margin>
-                                          <Insets left="6.0" right="11.0" top="5.0" />
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                       </GridPane.margin>
+                                    </DatePicker>
+                                    <ComboBox fx:id="hora_Inicio" prefHeight="40.0" prefWidth="190.0" promptText="INICIO" styleClass="text-field" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                       <GridPane.margin>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
                                        </GridPane.margin>
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                     </ComboBox>
-                                    <ComboBox fx:id="hora_Fin" prefHeight="30.0" prefWidth="151.0" promptText="FIN" styleClass="text-field" GridPane.columnIndex="2" GridPane.rowIndex="1" GridPane.valignment="TOP">
+                                    <ComboBox fx:id="hora_Fin" prefHeight="40.0" prefWidth="197.0" promptText="FIN" styleClass="text-field" GridPane.columnIndex="2" GridPane.halignment="LEFT" GridPane.rowIndex="1" GridPane.valignment="TOP">
                                        <cursor>
                                           <Cursor fx:constant="HAND" />
                                        </cursor>
                                        <GridPane.margin>
-                                          <Insets right="7.0" top="5.0" />
+                                          <Insets bottom="5.0" left="5.0" right="5.0" top="8.0" />
                                        </GridPane.margin>
                                     </ComboBox>
                                  </children>
@@ -231,7 +234,7 @@
                   </HBox>
                </children>
                <HBox.margin>
-                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                  <Insets />
                </HBox.margin>
             </StackPane>
          </children>

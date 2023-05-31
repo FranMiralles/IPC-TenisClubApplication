@@ -44,7 +44,7 @@ public class JavaFXMLApplication extends Application {
                 stage.setMinHeight(750);
                 break;
             case "ReservarPistaEspecifica":
-                stage.setMinWidth(872);
+                stage.setMinWidth(910);
                 stage.setMinHeight(750);
                 break;
             case "RegistroUsuario":
