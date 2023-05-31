@@ -1,6 +1,8 @@
 package javafxmlapplication;
 
 import java.net.URL;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -23,7 +25,6 @@ import javafx.scene.control.TableRow;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -232,16 +233,78 @@ public class MisReservas implements Initializable {
     }
     
     @FXML
-    private void eliminar(){
+    private int eliminar(){
         Reserva reserva = tabla.getSelectionModel().getSelectedItem();
-        bookingList.remove(reserva);
-        try{
-            greenBall.removeBooking(reserva.getBooking());
-        }catch(Exception e){
-            
+        
+        // Si la reserva ya ha pasado, no se puede eliminar (en nuestro proyecto, las reservas que ya han pasado en días anteriores se eliminan automáticamente, pero las del día de hoy no, por lo que vamos a comprobarlo para que no sea posible eliminarla)
+        LocalDateTime fechaHoraReserva = reserva.getBooking().getMadeForDay().atTime(reserva.getBooking().getFromTime());
+        if(fechaHoraReserva.compareTo(LocalDateTime.now()) < 0){
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText(null);
+            alert.setContentText("La reserva ya ha expirado, no puedes borrarla. (Se eliminará automáticamente mañana)");
+            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+            alert.showAndWait();
+            return 1;
         }
-        tabla.refresh();
+        
+        // Se elimina si queda más de un día para la hora de la reserva
+        
+        int duracion = (int)Duration.between(LocalDateTime.now(), fechaHoraReserva).toMinutes();
+        if(duracion < 1440){
+            //No podrá ya que queda menos de un día
+            boolean pagar = false;
+            Alert alert = new Alert(AlertType.ERROR);
+            alert.setTitle("Imposible eliminar sin pagar");
+            alert.setHeaderText(null);
+            if(reserva.getColored()){
+                alert.setContentText("Quedan menos de 24 horas para la reserva, el club no permite eliminar y hay que pagarlo.\n\nYa la tienes pagada.");
+                pagar = true;
+            }else{
+                if(member.checkHasCreditInfo()){
+                    alert.setContentText("Quedan menos de 24 horas para la reserva, el club no permite eliminar y hay que pagarlo.\n\nEl pago se va ha realizar con tu tarjeta de crédito proporcionada.");                    
+                    pagar = true;
+                }else{
+                    alert.setContentText("Quedan menos de 24 horas para la reserva, el club no permite eliminar y hay que pagarlo.\n\nEl pago no se puede realizar ya que no tienes tarjeta de crédito proporcionada, cámbialo en Mis Datos.");
+                }
+            }
+            
+            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+            alert.setHeight(300);
+            alert.setWidth(250);
+            alert.showAndWait();
+            if(pagar){ 
+                reserva.getBooking().setPaid(true);
+                actualizarTabla();
+            }
+        }else{
+            Alert alert = new Alert(AlertType.INFORMATION);
+            alert.setTitle("Eliminar");
+            alert.setHeaderText(null);
+            alert.setContentText("Se va a eliminar la reserva seleccionada.");
+            alert.getDialogPane().setStyle("-fx-background-color: #a4dc8c");
+            alert.getDialogPane().getStylesheets().add("styles/EstilosFondo.css");
+            alert.showAndWait();
+            
+            
+            eliminarReserva(reserva);
+        }
+        
+        return 0;
     }
+    
+    private void eliminarReserva(Reserva reserva){
+        bookingList.remove(reserva);
+            try{
+                greenBall.removeBooking(reserva.getBooking());
+            }catch(Exception e){
+
+            }
+            tabla.refresh();
+    }
+    
     
     @FXML
     public void volver(){

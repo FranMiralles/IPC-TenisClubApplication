@@ -2,7 +2,6 @@ package javafxmlapplication;
 
 
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -110,6 +109,7 @@ public class PaginaPrincipal implements Initializable {
             misReservasFoto.setImage(verReservasBlanco);
             misReservasText.setStyle("-fx-text-fill: #ffffff;");
         });
+        
         
         misReservas.setOnMouseExited(c ->{
             misReservasTitle.setStyle("-fx-text-fill: #000000;");

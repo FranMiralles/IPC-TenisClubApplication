@@ -44,7 +44,7 @@
                <children>
                   <VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="35.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="370.0" spacing="25.0" style="-fx-background-color: #a4dc8c; -fx-border-color: #24740c;">
+                        <VBox maxWidth="-Infinity" minWidth="-Infinity" prefWidth="320.0" spacing="25.0" style="-fx-background-color: #a4dc8c; -fx-border-color: #24740c;">
                            <children>
                               <VBox spacing="5.0">
                                  <children>
@@ -87,7 +87,7 @@
                                           <Image url="@../images/ExclamationIcon.png" />
                                        </image>
                                     </ImageView>
-                                    <Label fx:id="alertText" alignment="TOP_LEFT" prefWidth="210.0" text="Inicia con tus credenciales" textFill="#7c7c7c" wrapText="true">
+                                    <Label fx:id="alertText" alignment="TOP_LEFT" prefWidth="165.0" text="Inicia con tus credenciales" textFill="#7c7c7c" wrapText="true">
                                        <HBox.margin>
                                           <Insets />
                                        </HBox.margin>
@@ -117,7 +117,7 @@
                               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
                         </VBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="36.0" prefWidth="370.0" spacing="35.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;">
+                        <HBox alignment="CENTER_LEFT" prefHeight="38.0" prefWidth="302.0" spacing="35.0" style="-fx-border-color: #24740c; -fx-background-color: #a4dc8c;">
                            <children>
                               <Label text="¿Todavía no tienes una cuenta?" underline="true">
                                  <font>

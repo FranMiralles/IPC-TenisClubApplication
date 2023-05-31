@@ -74,7 +74,7 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </Label>
-                  <Label styleClass="titulo" text="Pista Padel" textFill="WHITE" GridPane.rowIndex="2">
+                  <Label styleClass="titulo" text="Pista Pádel" textFill="WHITE" GridPane.rowIndex="2">
                      <font>
                         <Font size="18.0" />
                      </font>
