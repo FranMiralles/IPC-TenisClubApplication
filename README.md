@@ -6,10 +6,12 @@ Aplicación para un polideportivo de tenis. Permite la reserva de pistas a tiemp
 
 ![Alt Text](Imagenes/PaginaInicio.png)
 
-[![Pagina-Inicio.png](https://i.postimg.cc/R0T95F8s/Pagina-Inicio.png)](https://postimg.cc/GB96vcbG)
-
 
 -Iniciar sesión.
+
+<p align="center">
+  <img src="Imagenes/PaginaInicio.png" alt="Alt Text" width="200px" />
+</p>
 
 [![Iniciar-Sesion.png](https://i.postimg.cc/0N4nNGLb/Iniciar-Sesion.png)](https://postimg.cc/kVxK1SMm)
 
