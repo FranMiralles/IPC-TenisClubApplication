@@ -4,6 +4,8 @@ Aplicación para un polideportivo de tenis. Permite la reserva de pistas a tiemp
 
 -Página de Inicio: vista previa de las reservas hechas para cada día y pista.
 
+![Alt Text] (Imagenes/PaginaInicio.png)
+
 [![Pagina-Inicio.png](https://i.postimg.cc/R0T95F8s/Pagina-Inicio.png)](https://postimg.cc/GB96vcbG)
 
 
