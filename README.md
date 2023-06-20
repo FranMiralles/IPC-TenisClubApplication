@@ -1,7 +1,6 @@
 # IPC-TenisClubApplication
 
 Aplicación para un polideportivo de tenis. Permite la reserva de pistas a tiempo real.
-
 Desarrollado usando JavaFX.
 
 
