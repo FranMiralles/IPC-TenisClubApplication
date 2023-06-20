@@ -6,40 +6,37 @@ Aplicación para un polideportivo de tenis. Permite la reserva de pistas a tiemp
 
 <img src="Imagenes/PaginaInicio.png" alt="Alt Text" width="500px" />
 
+
 -Iniciar sesión.
 
-<p align="center">
-  <img src="Imagenes/PaginaInicio.png" alt="Alt Text" width="200px" />
-</p>
-
-[![Iniciar-Sesion.png](https://i.postimg.cc/0N4nNGLb/Iniciar-Sesion.png)](https://postimg.cc/kVxK1SMm)
+<img src="Imagenes/IniciarSesion.png" alt="Alt Text" width="500px" />
 
 
 -Registro usuario.
 
-[![Registro-Usuario.png](https://i.postimg.cc/gkpDr2Bq/Registro-Usuario.png)](https://postimg.cc/XX2Fz4Wp)
+<img src="Imagenes/RegistroUsuario.png" alt="Alt Text" width="500px" />
 
 
 -Pagina Principal: reserva, maneja tus reservas y accede a tus datos.
 
-[![Pagina-Principal.png](https://i.postimg.cc/TYW62QFW/Pagina-Principal.png)](https://postimg.cc/tYyf2dXX)
+<img src="Imagenes/PaginaPrincipal.png" alt="Alt Text" width="500px" />
 
 
 -Reservar: elige la pista a reservar.
 
-[![Reservar.png](https://i.postimg.cc/T3ffkgNL/Reservar.png)](https://postimg.cc/hfykvzBc)
+<img src="Imagenes/Reservar.png" alt="Alt Text" width="500px" />
 
 
 -Reservar Pista Específica: elige horario (si hay disponibilidad) para reservar la pista seleccionada. 
 
-[![Reservar-Pista.png](https://i.postimg.cc/5tt1J1Vf/Reservar-Pista.png)](https://postimg.cc/nXNNKyrW)
+<img src="Imagenes/ReservarPista.png" alt="Alt Text" width="500px" />
 
 
 -Mis Reservas: visualiza las reservas realizadas, págala (simulación) o elimínala.
 
-[![Mis-Reservas.png](https://i.postimg.cc/q7ZrMYJy/Mis-Reservas.png)](https://postimg.cc/hJx6227t)
+<img src="Imagenes/MisReservas.png" alt="Alt Text" width="500px" />
 
 
 -Cambio Datos: cambia tus datos introducidos en el registro.
 
-[![Cambia-Datos.png](https://i.postimg.cc/76yV7PZk/Cambia-Datos.png)](https://postimg.cc/mc8CWs9X)
+<img src="Imagenes/CambiaDatos.png" alt="Alt Text" width="500px" />
