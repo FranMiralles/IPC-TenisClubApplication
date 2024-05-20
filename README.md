@@ -1,7 +1,9 @@
 # IPC-TenisClubApplication
 
 Trabajo universitario de segundo curso de Ingeniería Informática.
+
 Aplicación de gestión de un polideportivo de tenis. Permite la reserva de pistas a tiempo real.
+
 Desarrollado usando JavaFX.
 
 
